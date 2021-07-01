@@ -1,0 +1,11 @@
+#Roni:hover #Head {
+    transform:translateY(7px);
+    
+}
+#Roni #Head, #Roni #Left-Arm {
+    transition:0.3s;
+}
+#Roni:hover #Left-Arm {
+    transform:rotate(-15deg) translate(-20px, 20px);
+    
+}
