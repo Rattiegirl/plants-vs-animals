@@ -1,0 +1,13 @@
+.hamster{
+    width: 100px;
+    height:100px;
+background-size: 100%;
+}
+.hamster.happy{
+
+    background-image:url(../img/hamster-2.jpg);
+}
+.hamster.normal{
+background-image:url(../img/hamster-1.jpg);
+    
+}
