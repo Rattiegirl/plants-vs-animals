@@ -1,0 +1,7 @@
+#scene {
+  position: relative;
+  width: 1500px;
+  height: 700px;
+  border: 5px dotted blue;
+  margin: 20px auto;
+}

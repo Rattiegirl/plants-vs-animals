@@ -1,0 +1,21 @@
+#bird_fly, #bird_stroke  {
+  display: none;
+}
+
+#bird_fly {
+  transform-origin: center;
+}
+
+#bird_wrapper {
+  position: absolute;
+  transition: 0.3s;
+}
+
+#bird_wrapper[data-mode=flying] #bird_fly {
+  display: block;
+}
+#bird_wrapper[data-mode=gliding] #bird_stroke {
+  display: block;
+}
+  
+  

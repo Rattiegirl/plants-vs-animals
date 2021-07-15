@@ -3,8 +3,17 @@ function Hamster() {
   const humsterRunEl = el.querySelector("#hamster_run")
   let x= 0;
   let y= 0;
-  let step = 200;
+  const size = 50;
+  const step = 10;
 
+  const scene = {
+    width: 1500,
+    height: 700,
+  }
+
+  el.style.width= size + "px"
+  el.style.height= size + "px"
+  
   this.direction="left"
 
   const me = this;
@@ -13,9 +22,7 @@ function Hamster() {
       el.style.top= y + "px"
   }
 
-  this.sayHi = function(){
-      alert("Hi I want to chew you")
-  }
+ 
 
   this.sit = function () {
     el.setAttribute("data-mode", "sitting");
@@ -24,38 +31,6 @@ function Hamster() {
   this.run = function ( ) {
     el.setAttribute("data-mode","running" )
   }
-
-  this.goUp = function (){
-      this.run();
-      this.direction="top";
-      humsterRunEl.style.transform="rotate(90deg)"
-      y=y-step
-  }
-
-  this.goDown = function (){
-    this.run();
-    this.direction="down";
-    humsterRunEl.style.transform="rotate(-90deg)"
-    y=y+step
-  }
-
-  this.goRight = function (){
-    this.run();
-    this.direction="right";
-    humsterRunEl.style.transform="scale(-1,1)"
-    x=x+step
-  }
-
-  this.goLeft = function (){
-    this.run();
-    this.direction="left";
-    humsterRunEl.style.transform="none"
-    x=x-step
-  }
-
-  setInterval(function(){
-    me.render();
-  },100)
 
   this.chew = function ( ) {
     el.setAttribute("data-mode","chewing" )
@@ -70,10 +45,57 @@ function Hamster() {
   }
 
 
+  this.goUp = function (){
+      this.run();
+      this.direction="top";
+      humsterRunEl.style.transform="rotate(90deg)"
+      if (y-step < 0){
+        return false;
+      }
+      y=y-step
+  }
+
+  this.goDown = function (){
+    this.run();
+    this.direction="down";
+    humsterRunEl.style.transform="rotate(-90deg)"
+    if (y+step+size > scene.height){
+      return false;
+    }
+    y=y+step
+  }
+
+  this.goRight = function (){
+    this.run();
+    this.direction="right";
+    humsterRunEl.style.transform="scale(-1,1)"
+    if (x+step+size > scene.width){
+      return false;
+    }
+    x=x+step
+  }
+
+  this.goLeft = function (){
+    this.run();
+    this.direction="left";
+    humsterRunEl.style.transform="none"
+    if (x-step < 0){
+      return false;
+    }
+
+    x=x-step;
+  }
+
+  setInterval(function(){
+    me.render();
+  },100)
+
+
+
 }
 
 const hamster = new Hamster();
-// hamster.sayHi();
+
 //hamster.sit();
 //hamster.run();
 //hamster.goUp();
