@@ -17,3 +17,13 @@
 #hamster_wrapper[data-mode=running] #hamster_run {
   display: block;
 }
+#hamster_wrapper[data-mode=chewing] #hamster_chew {
+  display: block;
+}
+#hamster_wrapper[data-mode=digging] #hamster_dig {
+  display: block;
+}
+#hamster_wrapper[data-mode=distracted] #hamster_distracted {
+  display: block;
+}
+

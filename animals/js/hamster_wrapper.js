@@ -56,6 +56,20 @@ function Hamster() {
   setInterval(function(){
     me.render();
   },100)
+
+  this.chew = function ( ) {
+    el.setAttribute("data-mode","chewing" )
+  }
+
+  this.dig = function ( ) {
+    el.setAttribute("data-mode","digging" )
+  }
+
+  this.distracted = function ( ) {
+    el.setAttribute("data-mode","distracted" )
+  }
+
+
 }
 
 const hamster = new Hamster();
@@ -65,4 +79,7 @@ const hamster = new Hamster();
 //hamster.goUp();
 //hamster.goDown();
 // hamster.goRight();
-hamster.goLeft();
+//hamster.goLeft();
+//hamster.chew(); 
+//hamster.dig();
+//hamster.distracted();
