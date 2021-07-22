@@ -34,3 +34,12 @@ document.addEventListener("keydown", function(event){
   }
 
 })
+
+
+document.addEventListener("click", function(event){
+  console.log(event)
+  if (event.target.getAttribute ("id")==="scene"){
+    hamster.goTo(event.layerX, event.layerY)
+  }
+  
+})

@@ -5,7 +5,9 @@ function Hamster() {
   let y= 0;
   const size = 50;
   const step = 10;
-
+  let isBusy=false;
+  
+  
   const scene = {
     width: 1500,
     height: 700,
@@ -43,7 +45,44 @@ function Hamster() {
   this.distracted = function ( ) {
     el.setAttribute("data-mode","distracted" )
   }
+  
+  this.goTo = function(destinationX, destinationY){
+    if(isBusy) return
+    isBusy=true
+    const deltaX = destinationX-x
+    const deltaY = destinationY-y
 
+    const deltaXTime = Math.round(Math.abs(deltaX)*2)
+    const deltaYTime = Math.round(Math.abs(deltaY)*2)
+    // отправляем хомячка на восток или на запад
+    el.style.transition=deltaXTime + 'ms'
+    x=destinationX;
+    // if (destinationX>x){
+      if (deltaX>0){
+        this.goRight()
+        // alert("Я бегу на восток! " + (destinationX-x))
+      } else {
+        this.goLeft()
+        // alert("Я бегу на запад! " + (x-destinationX))
+      }
+    setTimeout(function(){
+      el.style.transition=deltaYTime + 'ms'
+      // отправляем хомячка на север или Юг
+      y=destinationY
+      if (deltaY>0) {
+        me.goDown()
+        // alert("Я бегу на Юг! " + (destinationY-y))
+      } else {
+        me.goUp()
+        // alert("Я бегу на север! " + (y-destinationY))
+      }
+      setTimeout(function(){
+        me.sit()
+        isBusy=false
+        el.style.transition=300 + 'ms'
+      },deltaYTime)
+    },deltaXTime)
+  }
 
   this.goUp = function (){
       this.run();
