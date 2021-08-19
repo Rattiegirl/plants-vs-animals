@@ -1,0 +1,20 @@
+#rose, #rose_attack, #rose_distract {
+    display:none;
+} 
+
+#rose_wrapper {
+    position: absolute;
+    transition: 0.4s;
+  }
+
+  #rose_wrapper[data-mode=waiting] #rose {
+    display: block;
+  }
+
+  #rose_wrapper[data-mode=distracting] #rose_distract {
+    display: block;
+  }
+
+  #rose_wrapper[data-mode=attacking] #rose_attack {
+    display: block;
+  }

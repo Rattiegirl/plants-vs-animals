@@ -1,4 +1,7 @@
-#bird_fly, #bird_stroke  {
+
+
+
+#bird_fly, #bird_sit, #bird_attack   {
   display: none;
 }
 
@@ -14,7 +17,10 @@
 #bird_wrapper[data-mode=flying] #bird_fly {
   display: block;
 }
-#bird_wrapper[data-mode=gliding] #bird_stroke {
+#bird_wrapper[data-mode=sitting] #bird_sit {
+  display: block;
+}
+#bird_wrapper[data-mode=attacking] #bird_attack {
   display: block;
 }
   

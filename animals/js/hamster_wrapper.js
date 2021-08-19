@@ -124,6 +124,10 @@ function Hamster() {
 
     x=x-step;
   }
+  
+  this.getCoords= function(){
+    return{x,y}
+}
 
   setInterval(function(){
     me.render();
@@ -133,7 +137,7 @@ function Hamster() {
 
 }
 
-const hamster = new Hamster();
+
 
 //hamster.sit();
 //hamster.run();
