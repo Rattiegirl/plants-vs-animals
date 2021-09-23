@@ -2,7 +2,7 @@ let animalPoints=0
 const animalPointsEl=document.querySelector ("#animal-points")
 document.addEventListener("keydown", function (event) {
   console.log(event)
-
+  if(paused) return
   if (event.key === "ArrowDown") {
     hamster.goDown();
   }
@@ -66,6 +66,7 @@ function intersect(plant, animal) {
 
 
 document.addEventListener("click", function (event) {
+  if(paused) return
   if (event.target.getAttribute("id") === "scene") {
     hamster.goTo(event.layerX, event.layerY)
   }
@@ -74,6 +75,7 @@ document.addEventListener("click", function (event) {
 })
 
 document.querySelector("#rose_wrapper").addEventListener("click", function (event) {
+  if(paused) return
   console.log(event)
   const { x, y } = rose.getCoords()
   hamster.goTo(x, y)

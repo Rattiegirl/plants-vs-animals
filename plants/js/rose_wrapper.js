@@ -14,6 +14,8 @@ function Rose() {
     el.style.height = size + "px"
 
     const me = this;
+    me.timeout1=null
+    me.timeout2=null
     this.render = function () {
         el.style.left = x + "px"
         el.style.top = y + "px"
@@ -35,14 +37,20 @@ function Rose() {
 
 
     this.plant = function (destinationX, destinationY) {
+        if(paused) return
         x = destinationX
         y = destinationY
+        clearTimeout (me.timeout1)
+        clearTimeout (me.timeout2)
         me.wait()
-        setTimeout(function () {
+        me.timeout1=setTimeout(function () {
+            
+            if(paused) return
             me.distract()
-            setTimeout(function () {
+            me.timeout2=setTimeout(function () {
+                if(paused) return
                 me.attack()
-            }, 1000)
+            }, 1500)
         }, 2000)
     }
 

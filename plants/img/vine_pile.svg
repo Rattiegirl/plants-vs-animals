@@ -1,0 +1,64 @@
+<svg width="350" height="350" viewBox="0 0 350 350" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Frame 12" clip-path="url(#clip0)">
+<rect width="350" height="350" fill="white"/>
+<g id="vine_wait">
+<ellipse id="Ellipse 215" cx="115" cy="79.044" rx="64.2859" ry="74.044" fill="#4DB33D"/>
+<ellipse id="Ellipse 214" cx="110.714" cy="87.7551" rx="42.8573" ry="47.9108" fill="#36832A"/>
+<ellipse id="Ellipse 216" cx="110.714" cy="83.3995" rx="17.1429" ry="17.4221" fill="#245A1C"/>
+<rect id="Rectangle 10" x="153.572" y="65.9774" width="17.1429" height="130.666" fill="#4DB23D"/>
+<ellipse id="Ellipse 217" rx="65.2078" ry="73.0012" transform="matrix(-0.342073 0.939673 -0.936025 -0.351935 276.363 170.366)" fill="#4DB33D"/>
+<ellipse id="Ellipse 218" rx="43.4718" ry="47.2361" transform="matrix(-0.342073 0.939673 -0.936025 -0.351935 274.877 174.45)" fill="#36832A"/>
+<ellipse id="Ellipse 219" rx="17.3887" ry="17.1768" transform="matrix(-0.342073 0.939673 -0.936025 -0.351935 278.897 175.961)" fill="#245A1C"/>
+<rect id="Rectangle 12" width="17.3887" height="128.826" transform="matrix(-0.342073 0.939673 -0.936025 -0.351935 280.104 222.856)" fill="#4DB23D"/>
+<ellipse id="Ellipse 220" rx="65.1392" ry="73.0798" transform="matrix(-0.425888 0.904776 0.899347 0.437235 118.466 270.11)" fill="#4DB33D"/>
+<ellipse id="Ellipse 221" rx="43.4261" ry="47.2869" transform="matrix(-0.425888 0.904776 0.899347 0.437235 116.616 274.039)" fill="#36832A"/>
+<ellipse id="Ellipse 222" rx="17.3705" ry="17.1952" transform="matrix(-0.425888 0.904776 0.899347 0.437235 116.434 272.144)" fill="#245A1C"/>
+<rect id="Rectangle 14" width="17.3469" height="129.142" transform="matrix(0.514316 0.857601 0.850128 -0.526577 50.7142 247.225)" fill="#4DB23D"/>
+</g>
+<g id="vine_attack">
+<rect id="Rectangle 15" x="160.936" y="124.936" width="8.92397" height="66.9297" fill="#4DB23D"/>
+<rect id="Rectangle 16" width="8.82701" height="66.8698" transform="matrix(0.960095 -0.279672 0.273623 0.961837 143.088 64.9363)" fill="#4DB23D"/>
+<rect id="Rectangle 17" width="7.4261" height="70.5743" transform="matrix(0.992682 0.120758 -0.117972 0.993017 151.414 0)" fill="#4DB23D"/>
+<rect id="Rectangle 18" x="222.513" y="218.228" width="8.92397" height="66.9297" transform="rotate(121.818 222.513 218.228)" fill="#4DB23D"/>
+<rect id="Rectangle 19" x="282.905" y="234.695" width="8.92397" height="66.9297" transform="rotate(105.758 282.905 234.695)" fill="#4DB23D"/>
+<rect id="Rectangle 20" x="333.642" y="276.09" width="7.51327" height="70.5861" transform="rotate(128.673 333.642 276.09)" fill="#4DB23D"/>
+<rect id="Rectangle 21" x="162.616" y="182.941" width="8.92397" height="66.9297" transform="rotate(42.1089 162.616 182.941)" fill="#4DB23D"/>
+<rect id="Rectangle 22" x="92.7079" y="292.336" width="8.92397" height="66.9297" transform="rotate(-150.733 92.7079 292.336)" fill="#4DB23D"/>
+<rect id="Rectangle 23" x="40.6069" y="332" width="7.51327" height="70.5861" transform="rotate(-127.819 40.6069 332)" fill="#4DB23D"/>
+</g>
+<g id="vine_attack_2">
+<g id="vine_attack_3">
+<rect id="Rectangle 15_2" x="157.25" y="217.446" width="15.389" height="115.418" fill="#4DB23D"/>
+<rect id="Rectangle 16_2" width="15.2218" height="115.314" transform="matrix(0.960095 -0.279672 0.273623 0.961837 126.472 113.98)" fill="#4DB23D"/>
+<rect id="Rectangle 17_2" width="12.806" height="121.702" transform="matrix(0.992682 0.120758 -0.117972 0.993017 140.83 2)" fill="#4DB23D"/>
+<rect id="Rectangle 18_2" x="237.284" y="248.224" width="15.389" height="115.418" transform="rotate(43.9019 237.284 248.224)" fill="#4DB23D"/>
+<rect id="Rectangle 19_2" x="279.5" y="147.657" width="13.8278" height="115.418" transform="rotate(174.465 279.5 147.657)" fill="#4DB23D"/>
+<rect id="Rectangle 20_2" x="246.925" y="261.706" width="13.1336" height="121.723" transform="rotate(-165.733 246.925 261.706)" fill="#4DB23D"/>
+<rect id="Rectangle 21_2" x="164.956" y="341.316" width="15.389" height="115.418" transform="rotate(160.035 164.956 341.316)" fill="#4DB23D"/>
+<rect id="Rectangle 22_2" x="131.16" y="244.716" width="15.389" height="115.418" transform="rotate(165.838 131.16 244.716)" fill="#4DB23D"/>
+<rect id="Rectangle 23_2" x="100.933" y="139.674" width="12.9563" height="121.723" transform="rotate(-176.519 100.933 139.674)" fill="#4DB23D"/>
+</g>
+</g>
+<g id="vine_chewed">
+<g id="vine_attack_4">
+<rect id="Rectangle 15_3" x="166.864" y="141.966" width="11.1881" height="78.7319" fill="#4DB23D"/>
+<rect id="Rectangle 16_3" width="11.0147" height="79.0606" transform="matrix(0.964619 -0.263647 0.29015 0.956981 144.488 71.387)" fill="#4DB23D"/>
+<rect id="Rectangle 17_3" width="9.3021" height="83.0976" transform="matrix(0.993549 0.113404 -0.125613 0.992079 154.926 -5)" fill="#4DB23D"/>
+<rect id="Rectangle 18_3" width="10.694" height="82.504" transform="matrix(-0.551581 0.834121 -0.864218 -0.503117 244.064 251.71)" fill="#4DB23D"/>
+<rect id="Rectangle 19_3" width="10.5501" height="83.5399" transform="matrix(-0.288008 0.957628 -0.966689 -0.255952 278.63 305.066)" fill="#4DB23D"/>
+<rect id="Rectangle 20_3" width="9.06958" height="20.3045" transform="matrix(-0.648982 0.760803 -0.799626 -0.600499 317.649 316.872)" fill="#4DB23D"/>
+<rect id="Rectangle 24" width="23.7793" height="8.3106" transform="matrix(-0.648982 0.760803 -0.799626 -0.600499 280.089 262.43)" fill="#508F47"/>
+<rect id="Rectangle 21_3" width="10.8831" height="81.1015" transform="matrix(0.762667 0.646792 -0.69377 0.720197 168.971 210.201)" fill="#4DB23D"/>
+<rect id="Rectangle 22_3" width="11.027" height="80.0002" transform="matrix(-0.885098 -0.465406 0.512776 -0.858523 92.713 347)" fill="#508F47"/>
+<rect id="Rectangle 23_3" width="8.4067" height="84.1405" transform="matrix(-0.906538 0.422124 -0.467548 -0.883968 71.9607 300.617)" fill="#508F47"/>
+</g>
+<ellipse id="Ellipse 223" cx="236.789" cy="252.191" rx="2.79703" ry="5.2488" fill="#4DB23D"/>
+<path id="Polygon 58" d="M270.354 299.43L272.776 307.303H267.932L270.354 299.43Z" fill="#4DB23D"/>
+</g>
+</g>
+<defs>
+<clipPath id="clip0">
+<rect width="350" height="350" fill="white"/>
+</clipPath>
+</defs>
+</svg>

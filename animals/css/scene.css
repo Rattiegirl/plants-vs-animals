@@ -1,7 +1,86 @@
+*{
+  box-sizing:border-box;
+}
 #scene {
   position: relative;
   width: 1500px;
   height: 700px;
-  border: 5px dotted blue;
+  border: 5px dotted rgb(34, 160, 122);
   margin: 20px auto;
+}
+
+#top-panel{
+  position:absolute;
+  top:0;
+  left:0px;
+  right:0;
+  height: 80px;
+  display:flex;
+  opacity: 0;
+  transform:translateY(-100%);
+  transition:0.7s 1s; 
+}
+#top-panel:hover{
+transform: translateY(0%);
+opacity: 1;
+transition:0.3s;
+}
+
+.player-field{
+ width: 450px; 
+ /* background-color:#19e345; */
+ padding: 10px;
+}
+
+.player-field.enemy{
+display: flex;
+justify-content: flex-end;
+}
+
+.player-name{
+height: 90px;
+width: 225px;
+display:flex;
+justify-content:center;
+align-items: flex-end;
+background-image: url(/img/team_hamster.svg);
+background-size: 75%;
+background-repeat: no-repeat;
+font-size: 20px;
+padding-bottom: 35px;
+}
+.enemy .player-name{
+  background-image: url(/img/team_rose.svg);
+}
+.center-field{
+  flex:1;
+ text-align: center;
+ font-size: 35px;
+ font-weight: bold;
+ padding-top: 20px;
+}
+
+#play-pause-btn{
+  position:absolute;
+  left:10px;
+  bottom:10px;
+
+}
+.overlay{
+  position:fixed;
+  left:0;
+  top:0;
+  bottom:0;
+  right:0;
+  background:rgba(86, 247, 206, 0.4);
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal{
+  width: 480px;
+  height:430px;
+  background:#D3BA79;
+  border-radius: 10px;
+  padding: 20px;
 }

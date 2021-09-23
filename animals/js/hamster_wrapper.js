@@ -130,6 +130,7 @@ function Hamster() {
 }
 
   setInterval(function(){
+    if(paused) return
     me.render();
   },100)
 
