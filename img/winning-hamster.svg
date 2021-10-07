@@ -1,0 +1,36 @@
+<svg width="526" height="780" viewBox="0 0 526 780" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Frame 29">
+<g id="winning-animal">
+<g id="hamster">
+<ellipse id="Ellipse 226" cx="248.124" cy="492" rx="162" ry="214" fill="#DCC27F"/>
+<g id="Ellipse 227">
+<ellipse cx="174.124" cy="706" rx="74" ry="34" fill="#4E4E4E"/>
+<ellipse cx="174.124" cy="706" rx="74" ry="34" fill="#EB9F8F"/>
+</g>
+<g id="Ellipse 228">
+<ellipse cx="317" cy="706" rx="74" ry="34" fill="black"/>
+<ellipse cx="317" cy="706" rx="74" ry="34" fill="#EB9F8F"/>
+</g>
+<ellipse id="Ellipse 229" cx="262.124" cy="238" rx="126" ry="128" fill="#F2D58A"/>
+<ellipse id="Ellipse 230" cx="415.898" cy="381.039" rx="36.2169" ry="66" transform="rotate(39.188 415.898 381.039)" fill="#F2D58A"/>
+<ellipse id="Ellipse 231" cx="72.8983" cy="483.04" rx="36.2169" ry="66" transform="rotate(46.7822 72.8983 483.04)" fill="#F2D58A"/>
+<ellipse id="Ellipse 232" cx="437.124" cy="358.5" rx="21" ry="22.5" fill="#EB9F8F"/>
+<ellipse id="Ellipse 233" cx="50.6243" cy="513" rx="22.5" ry="21" fill="#EB9F8F"/>
+<path id="Polygon 59" d="M152.116 89.1887C152.074 81.722 160.619 77.455 166.563 81.9741L231.008 130.972C236.315 135.006 235.546 143.209 229.582 146.188L165.587 178.146C159.623 181.124 152.604 176.811 152.566 170.144L152.116 89.1887Z" fill="#DCC27F"/>
+<path id="Polygon 60" d="M337.44 82.5106C342.007 78.5454 349.153 80.8862 350.488 86.7849L365.648 153.751C367.02 159.812 361.26 165.054 355.355 163.12L288.351 141.17C282.446 139.236 280.904 131.601 285.596 127.527L337.44 82.5106Z" fill="#DCC27F"/>
+<circle id="Ellipse 234" cx="230.124" cy="238" r="18" fill="black"/>
+<ellipse id="Ellipse 235" cx="313.124" cy="230.5" rx="17" ry="18.5" fill="black"/>
+<ellipse id="Ellipse 236" cx="280.624" cy="282" rx="15.5" ry="10" fill="#EB9F8F"/>
+<line id="Line 1" x1="280.624" y1="290" x2="280.624" y2="328" stroke="black"/>
+<path id="Ellipse 237" d="M258.855 315.328C258.661 322.311 261.027 329.078 265.432 334.142C269.836 339.205 275.919 342.15 282.343 342.328C288.766 342.506 295.003 339.903 299.681 335.092C304.36 330.28 307.097 323.654 307.291 316.672L283.073 316L258.855 315.328Z" fill="#DE3030"/>
+</g>
+<g id="crown">
+<ellipse id="Ellipse 238" cx="258" cy="157" rx="141" ry="13" fill="#F2E359"/>
+<path id="Polygon 61" d="M277 0L355.808 153.75H198.192L277 0Z" fill="#F2E359"/>
+<path id="Polygon 62" d="M368 78L400.909 158.25H335.091L368 78Z" fill="#F2E359"/>
+<path id="Polygon 63" d="M165 43L212.631 154H117.369L165 43Z" fill="#F2E359"/>
+<ellipse id="Ellipse 239" cx="279" cy="114" rx="14" ry="25" fill="#19628A"/>
+</g>
+</g>
+</g>
+</svg>
