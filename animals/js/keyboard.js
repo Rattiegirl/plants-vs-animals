@@ -1,5 +1,21 @@
 let animalPoints=0
+let animalSeeds=0
 const animalPointsEl=document.querySelector ("#animal-points")
+const animalSeedsEl=document.querySelector (".seeds")
+const armorEl=document.querySelector (".armor")
+function showSeeds () {
+  animalSeedsEl.innerHTML=""
+  for(let i=0; i<animalSeeds; i+=1){
+    const imgEl=document.createElement("img")
+    imgEl.setAttribute("src", "../img/sunflower_seed.png")
+    animalSeedsEl.append (imgEl)
+  }
+  if (animalSeeds>2) {
+    armorEl.style.opacity=1
+  } else {
+    armorEl.style.opacity=0
+  }
+}
 document.addEventListener("keydown", function (event) {
   console.log(event)
   if(paused) return
@@ -27,6 +43,8 @@ document.addEventListener("keydown", function (event) {
     hamster.sit();
   }
 
+
+
   if (event.key === "c") {
     hamster.chew();
     if (intersect(rose, hamster)) {
@@ -36,6 +54,8 @@ document.addEventListener("keydown", function (event) {
       }
       else {
         animalPoints+=1 
+        animalSeeds+=1
+        showSeeds()
         animalPointsEl.innerText=animalPoints
         rose.plant(
           Math.floor(Math.random() * 1000)           ,

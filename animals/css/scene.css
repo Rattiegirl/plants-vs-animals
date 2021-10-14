@@ -25,7 +25,10 @@ transform: translateY(0%);
 opacity: 1;
 transition:0.3s;
 }
-
+.timer{
+  font-size: 25px;
+  text-align:center;
+}
 .player-field{
  width: 450px; 
  /* background-color:#19e345; */
@@ -151,4 +154,31 @@ transform:scale(1) translate(22%,1%)
 
 .with-crown .crown{
 display: block;
+}
+#inventory{
+position:absolute;
+left:20px;
+bottom:40px;
+
+}
+.seeds{
+  height:30px;
+}
+.seeds img{
+  height:100%;
+}
+
+#shop{
+  position:absolute;
+  right: 10px;
+  bottom:10px;
+}
+.armor{
+  height: 55px;
+  opacity:0;
+}
+
+.armor img{
+  height:100%;
+  
 }

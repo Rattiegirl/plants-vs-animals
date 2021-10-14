@@ -9,7 +9,7 @@ rose.plant(
     Math.floor(Math.random() * 600));
 
 const timer = document.querySelector(".timer")
-let seconds = 10
+let seconds = 30
 const chewRose = 3
 const intervalId = setInterval(
     function () {
