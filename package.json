@@ -1,0 +1,33 @@
+{
+  "name": "plant-vs-animals",
+  "version": "1.0.0",
+  "description": "A game that never happens in real life",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev":"nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rattiegirl/plants-vs-animals.git"
+  },
+  "keywords": [
+    "Hamster",
+    "Rose",
+    "Vs",
+    "Game",
+    "Sit"
+  ],
+  "author": "Mayya",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rattiegirl/plants-vs-animals/issues"
+  },
+  "homepage": "https://github.com/Rattiegirl/plants-vs-animals#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.14"
+  }
+}
