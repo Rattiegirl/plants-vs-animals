@@ -1,8 +1,10 @@
-#hamster_1, #hamster_2, #hamster_run_2, #hamster_run, #hamster_dig, #hamster_chew, #hamster_distracted, #dirt  {
+#hamster_1,#hamster_knight_run, #hamster_knight_sit, #hamster_2,
+ #hamster_run_2, #hamster_run, #hamster_dig, #hamster_knight_chew,
+  #hamster_chew, #hamster_distracted, #dirt  {
   display: none;
 }
 
-#hamster_run {
+#hamster_run, #hamster_knight_run {
   transform-origin: center;
 }
 
@@ -11,13 +13,23 @@
   transition: 0.3s;
 }
 
-#hamster_wrapper[data-mode=sitting] #hamster_1 {
+#hamster_wrapper:not(.armored)[data-mode=sitting] #hamster_1 {
   display: block;
 }
-#hamster_wrapper[data-mode=running] #hamster_run {
+#hamster_wrapper.armored[data-mode=sitting] #hamster_knight_sit
+ {
   display: block;
 }
-#hamster_wrapper[data-mode=chewing] #hamster_chew {
+#hamster_wrapper:not(.armored)[data-mode=running] #hamster_run {
+  display: block;
+}
+#hamster_wrapper.armored[data-mode=running] #hamster_knight_run {
+  display: block;
+}
+#hamster_wrapper:not(.armored)[data-mode=chewing] #hamster_chew {
+  display: block;
+}
+#hamster_wrapper.armored[data-mode=chewing] #hamster_knight_chew {
   display: block;
 }
 #hamster_wrapper[data-mode=digging] #hamster_dig {

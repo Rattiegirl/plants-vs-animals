@@ -1,24 +1,24 @@
-let animalPoints=0
-let animalSeeds=0
-const animalPointsEl=document.querySelector ("#animal-points")
-const animalSeedsEl=document.querySelector (".seeds")
-const armorEl=document.querySelector (".armor")
-function showSeeds () {
-  animalSeedsEl.innerHTML=""
-  for(let i=0; i<animalSeeds; i+=1){
-    const imgEl=document.createElement("img")
+let animalPoints = 0
+let animalSeeds = 0
+const animalPointsEl = document.querySelector("#animal-points")
+const animalSeedsEl = document.querySelector(".seeds")
+const armorEl = document.querySelector(".armor")
+function showSeeds() {
+  animalSeedsEl.innerHTML = ""
+  for (let i = 0; i < animalSeeds; i += 1) {
+    const imgEl = document.createElement("img")
     imgEl.setAttribute("src", "../img/sunflower_seed.png")
-    animalSeedsEl.append (imgEl)
+    animalSeedsEl.append(imgEl)
   }
-  if (animalSeeds>2) {
-    armorEl.style.opacity=1
+  if (animalSeeds > 2) {
+    armorEl.style.opacity = 1
   } else {
-    armorEl.style.opacity=0
+    armorEl.style.opacity = 0
   }
 }
 document.addEventListener("keydown", function (event) {
   console.log(event)
-  if(paused) return
+  if (paused) return
   if (event.key === "ArrowDown") {
     hamster.goDown();
   }
@@ -44,22 +44,31 @@ document.addEventListener("keydown", function (event) {
   }
 
 
-
+function eatingRose(){
+  animalPoints += 1
+  animalSeeds += 1
+  showSeeds()
+  animalPointsEl.innerText = animalPoints
+  rose.plant(
+    Math.floor(Math.random() * 1000),
+    Math.floor(Math.random() * 600));
+}
   if (event.key === "c") {
     hamster.chew();
     if (intersect(rose, hamster)) {
       if (rose.getDataMode() === "attacking") {
-        alert("Хомя не успел")
-        alert( "Хомя съел "+animalPoints)
+        if (hamster.isArmored()) {
+        hamster.noArmor()
+eatingRose()
+        } else {
+          alert("Хомя не успел")
+          alert("Хомя съел " + animalPoints)
+          ////////todo:GAME OVER
+        }
+
       }
       else {
-        animalPoints+=1 
-        animalSeeds+=1
-        showSeeds()
-        animalPointsEl.innerText=animalPoints
-        rose.plant(
-          Math.floor(Math.random() * 1000)           ,
-          Math.floor(Math.random() * 600));
+       eatingRose()
       }
 
     }
@@ -86,7 +95,7 @@ function intersect(plant, animal) {
 
 
 document.addEventListener("click", function (event) {
-  if(paused) return
+  if (paused) return
   if (event.target.getAttribute("id") === "scene") {
     hamster.goTo(event.layerX, event.layerY)
   }
@@ -95,7 +104,7 @@ document.addEventListener("click", function (event) {
 })
 
 document.querySelector("#rose_wrapper").addEventListener("click", function (event) {
-  if(paused) return
+  if (paused) return
   console.log(event)
   const { x, y } = rose.getCoords()
   hamster.goTo(x, y)

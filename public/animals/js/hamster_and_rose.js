@@ -79,3 +79,11 @@ startGameBtn.onclick = function () {
 
 }
 restartGameBtn.onclick = function () { location.reload() }
+////////////////////////////////////////Покупайте за низкую цену
+const armoredBtn = document.querySelector("#shop .armor")
+armoredBtn.onclick  = function(){
+   hamster.armor() 
+   animalSeeds-=3
+   showSeeds()
+}
+
