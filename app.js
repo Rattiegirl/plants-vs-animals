@@ -12,8 +12,17 @@ app.get("/", (req, res) => {
 app.get("/game", (req, res) => {
   res.send("The New Game");
 });
-app.get("/exaples/hamster-vs-rose", (req, res) => {
-  res.render("hamster-vs-rose");
+app.get("/examples/hamster-vs-rose", (req, res) => {
+  const welcomeText="Приветствует Царь Хомя всех своих подданных!";
+  res.render("hamster-vs-rose",{
+    welcomeText
+  });
+});
+app.get("/examples/bird-vs-rose", (req, res) => {
+  const welcomeText="Приветствует Королева Птичка всё своё царство!";
+  res.render("bird-vs-rose",{
+    welcomeText
+  });
 });
 app.get("/welcome", (req, res) => {
   res.send("You found this");
