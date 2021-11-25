@@ -1,5 +1,6 @@
 function Bird() {
     const el = document.querySelector("#bird_wrapper")
+    let birdFlyEl= el.querySelector("#bird_fly")
     // let humsterRunEl = el.querySelector("#hamster_run")
     // if (
     //   el.classList.contains("armored")
@@ -40,6 +41,10 @@ function Bird() {
      this.fly = function () {
        el.setAttribute("data-mode", "flying")
      }
+
+     this.attack = function () {
+      el.setAttribute("data-mode", "attacking")
+    }
   
     // this.chew = function () {
     //   el.setAttribute("data-mode", "chewing")
@@ -59,11 +64,18 @@ function Bird() {
       const deltaX = destinationX - x
       const deltaY = destinationY - y
   
-      const deltaXTime = Math.round(Math.abs(deltaX) * 2)
-      const deltaYTime = Math.round(Math.abs(deltaY) * 2)
+      const deltaXTime = Math.round(Math.abs(deltaX)*2  )
+      const deltaYTime = Math.round(Math.abs(deltaY)*2  )
+     const deltaTime = Math.sqrt( Math.pow(deltaX, 2) +    Math.pow(deltaY, 2))*2
+     let angle =(Math.atan (deltaX/-deltaY)*90/Math.PI) 
+     if (deltaY >0){
+       angle+=180
+     }
+   birdFlyEl.style.transform=`rotate(${angle}deg)`
       
-      el.style.transition = deltaXTime + 'ms'
-      x = destinationX;
+      el.style.transition = deltaTime + 'ms'
+      x = destinationX; 
+      y=destinationY;
       this.fly()
       
     //   if (deltaX > 0) {
@@ -74,9 +86,9 @@ function Bird() {
     
     //   }
       setTimeout(function () {
-        el.style.transition = deltaYTime + 'ms'
+      //////////  el.style.transition = deltaYTime + 'ms'
         // отправляем хомячка на север или Юг
-        y = destinationY
+      ///////  y = destinationY
         // if (deltaY > 0) {
         //   me.goDown()
          
@@ -84,12 +96,12 @@ function Bird() {
         //   me.goUp()
          
         // }
-        setTimeout(function () {
+       /////// setTimeout(function () {
         //   me.sit()
           isBusy = false
           el.style.transition = 300 + 'ms'
-        }, deltaYTime)
-      }, deltaXTime)
+       ////////// }, deltaYTime)
+      }, deltaTime)
     }
   
     // this.goUp = function () {

@@ -88,10 +88,51 @@ document.addEventListener("click", function (event) {
   
   })
 
+  document.addEventListener("keydown", function (event) {
+    console.log(event)
+    if (paused) return
+
+    if (event.key === "a") {
+      bird.attack();
+    }
+  
+    // if (event.key === "ArrowUp") {
+    //   hamster.goUp();
+    // }
+  
+    // if (event.key === "ArrowRight") {
+    //   hamster.goRight();
+    // }
+  
+    // if (event.key === "ArrowLeft") {
+    //   hamster.goLeft();
+    // }
+  
+    // if (event.key === "d") {
+    //   hamster.dig();
+    // }
+  
+    // if (event.key === "s") {
+    //   hamster.sit();
+    // }
+  
+  
+
+    
+  
+    // if (event.key === "l") {
+    //   hamster.distracted();
+    // }
+  
+  })
 
 
-
-
+  document.querySelector("#rose_wrapper").addEventListener("click", function (event) {
+    if (paused) return
+    console.log(event)
+    const { x, y } = rose.getCoords()
+    bird.goTo(x, y)
+  })
 
 
 
