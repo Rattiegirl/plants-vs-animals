@@ -24,6 +24,12 @@ app.get("/examples/bird-vs-rose", (req, res) => {
     welcomeText
   });
 });
+app.get("/examples/version-1", (req, res) => {
+  const welcomeText="Finally something you can play!";
+  res.render("version-1",{
+    welcomeText
+  });
+});
 app.get("/welcome", (req, res) => {
   res.send("You found this");
 });

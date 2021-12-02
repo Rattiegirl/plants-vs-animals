@@ -1,5 +1,6 @@
 function Hamster() {
   const el = document.querySelector("#hamster_wrapper")
+  this.el = el
   let humsterRunEl = el.querySelector("#hamster_run")
   if (
     el.classList.contains("armored")
@@ -25,7 +26,8 @@ function Hamster() {
 
   this.direction = "left"
 
-  const me = this;
+  const me = this
+  
   this.render = function () {
     el.style.left = x + "px"
     el.style.top = y + "px"

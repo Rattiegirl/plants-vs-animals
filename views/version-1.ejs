@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="/animals/css/scene.css">
+    <link rel="stylesheet" href="/animals/css/hamster_wrapper.css">
+    <link rel="stylesheet" href="/animals/css/bird_wrapper.css">
+    <link rel="stylesheet" href="/plants/css/rose_wrapper.css">
+</head>
+
+<body>
+
+    <div id="scene">
+        <%- include("examples/timer"); %>
+        <%- include("examples/top-panel"); %>
+        <%- include("examples/hamster_wrapper"); %>
+        <%- include("examples/inventory"); %>
+        <%- include("examples/bird_wrapper"); %>
+        <%- include("examples/inventory"); %>
+        <%- include("examples/rose_wrapper"); %>
+        <%- include("examples/overlay",{
+            welcomeText
+        }); %>
+        <%- include("examples/play-pause-btn"); %>
+        <%- include("examples/shop"); %>
+        
+    </div>
+    <script src="/animals/js/hamster_wrapper.js"></script>
+    <script src="/animals/js/bird_wrapper.js"></script>
+    <script src="/plants/js/rose_wrapper.js"></script>
+    <script src="/animals/js/bird_and_rose.js"></script>
+    <script src="/animals/js/hamster_and_bird.js"></script>
+    <!-- <script src="/animals/js/hamster_and_rose.js"></script>
+    <script src="/animals/js/keyboard.js"></script> -->
+
+    
+
+</body>
+
+</html>

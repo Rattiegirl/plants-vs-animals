@@ -1,13 +1,13 @@
 
 const bird = new Bird();
 const rose = new Rose();
-let paused= true
+let paused = true
 rose.plant(
     Math.floor(Math.random() * 1000),
     Math.floor(Math.random() * 600));
 
-    const timer = document.querySelector(".timer")
-    let seconds = 10
+const timer = document.querySelector(".timer")
+let seconds = 10
 const intervalId = setInterval(
     function () {
         if (paused) return
@@ -16,7 +16,7 @@ const intervalId = setInterval(
         if (seconds < 1) {
             seconds = 0
             clearInterval(intervalId)
-        
+
             pause()
             overlay.classList.remove("hidden")
             overlay.style.display = "flex"
@@ -79,60 +79,55 @@ restartGameBtn.onclick = function () { location.reload() }
 
 
 
-document.addEventListener("click", function (event) {
-    if (paused) return
-    if (event.target.getAttribute("id") === "scene") {
-      bird.goTo(event.layerX, event.layerY)
-    }
-  
-  
-  })
+// document.addEventListener("click", function (event) {
+//     if (paused) return
+//     if (event.target.getAttribute("id") === "scene") {
+//         bird.goTo(event.layerX, event.layerY)
+//     }
 
-  document.addEventListener("keydown", function (event) {
+
+// })
+
+document.addEventListener("keydown", function (event) {
     console.log(event)
     if (paused) return
 
     if (event.key === "a") {
-      bird.attack();
+        bird.attack();
     }
-  
+
     // if (event.key === "ArrowUp") {
     //   hamster.goUp();
     // }
-  
+
     // if (event.key === "ArrowRight") {
     //   hamster.goRight();
     // }
-  
+
     // if (event.key === "ArrowLeft") {
     //   hamster.goLeft();
     // }
-  
+
     // if (event.key === "d") {
     //   hamster.dig();
     // }
-  
+
     // if (event.key === "s") {
     //   hamster.sit();
     // }
-  
-  
 
-    
-  
+
+
+
+
     // if (event.key === "l") {
     //   hamster.distracted();
     // }
-  
-  })
+
+})
 
 
-  document.querySelector("#rose_wrapper").addEventListener("click", function (event) {
-    if (paused) return
-    console.log(event)
-    const { x, y } = rose.getCoords()
-    bird.goTo(x, y)
-  })
+
 
 
 
