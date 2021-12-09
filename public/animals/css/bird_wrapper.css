@@ -14,6 +14,7 @@
   transition: 0.3s;
   transform-origin: center center;
   transform: translate(-50%, -50%);
+  z-index: 1;
 }
 
 #bird_wrapper[data-mode=flying] #bird_fly {

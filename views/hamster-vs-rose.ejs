@@ -17,16 +17,16 @@
 <body>
 
     <div id="scene">
-        <%- include('examples/timer'); %>
-        <%- include("examples/top-panel"); %>
+        <%- include('examples/ui/timer'); %>
+        <%- include("examples/ui/top-panel"); %>
         <%- include("examples/hamster_wrapper"); %>
-        <%- include("examples/inventory"); %>
+        <%- include("examples/ui/inventory"); %>
         <%- include("examples/rose_wrapper"); %>
-        <%- include("examples/overlay",{
+        <%- include("examples/ui/overlay",{
             welcomeText
         }); %>
-        <%- include("examples/play-pause-btn"); %>
-        <%- include("examples/shop"); %>
+        <%- include("examples/ui/play-pause-btn"); %>
+        <%- include("examples/ui/shop"); %>
         
     </div>
     <script src="/animals/js/hamster_wrapper.js"></script>
