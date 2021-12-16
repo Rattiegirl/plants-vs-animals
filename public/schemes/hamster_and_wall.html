@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="hamster-object"></div>
+    <div class="wall-object"></div>
+
+    <script>
+        const hamster = {
+            el: document.querySelector('.hamster-object'),
+            width: 70,
+            height: 70,
+            top: 400,
+            left: 200
+        }
+
+        const wall = {
+            el: document.querySelector(".wall-object"),
+            width: 320,
+            height: 500,
+            top: 100,
+            left: 600,
+        }
+
+        const drawElement = (obj) => {
+            obj.el.style.width = `${obj.width}px`
+            obj.el.style.height = `${obj.height}px`
+            obj.el.style.top = `${obj.top}px`
+            obj.el.style.left = `${obj.left}px`
+        }
+
+
+        drawElement(hamster)
+        drawElement(wall)
+
+
+        const wallRunThrough = (animal, brick, left, top) => {
+            if (animal.height + animal.top < wall.top) {
+                return [true, left, top]
+            }
+            if (animal.top > wall.top + wall.height) {
+                return [true, left, top]
+            }
+            return [false, brick.left - animal.width, top]
+        }
+        setTimeout(() => {
+            const [success, left, top] = wallRunThrough(hamster, wall, 800, hamster.top)
+            if (success) {
+                alert("WOW HE MADE IT!")
+            } else {
+                alert("Грызи её как ты грыз свой картон")
+            }
+            hamster.left = left
+            hamster.top = top
+            drawElement(hamster)
+        }, 1000)
+
+
+    </script>
+    <style>
+        .hamster-object,
+        .wall-object {
+            position: absolute;
+            transition: 0.7s;
+        }
+
+        .hamster-object {
+            background-color: rgb(226, 226, 158);
+        }
+
+        .wall-object {
+            background-color: rgb(68, 13, 13)
+        }
+    </style>
+</body>
+
+</html>

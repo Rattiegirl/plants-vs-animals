@@ -21,6 +21,14 @@
  background-size:100%;
 }
 
+.rock{
+  position: absolute;
+  background-image: url(/img/map/rock.png);
+  height: 50px;
+  width: 50px;
+  background-size:100%;
+ }
+
 #top-panel{
   position:absolute;
   top:0;
