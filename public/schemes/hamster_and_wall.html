@@ -17,16 +17,16 @@
             el: document.querySelector('.hamster-object'),
             width: 70,
             height: 70,
-            top: 400,
-            left: 200
+            top: 230,
+            left: 70
         }
 
         const wall = {
             el: document.querySelector(".wall-object"),
-            width: 320,
+            width: 220,
             height: 500,
-            top: 100,
-            left: 600,
+            top: 0,
+            left: 680,
         }
 
         const drawElement = (obj) => {
@@ -42,27 +42,106 @@
 
 
         const wallRunThrough = (animal, brick, left, top) => {
-            if (animal.height + animal.top < wall.top) {
-                return [true, left, top]
+            /////// ХОМЯ БЕЖИТ ВПРАВО!!!!
+            if (animal.left < left && animal.top === top) {
+
+                if (animal.height + animal.top < wall.top) {
+                    return [true, left, top]
+                }
+                if (animal.top > wall.top + wall.height) {
+                    return [true, left, top]
+                }
+                if (brick.left - animal.width > left) {
+                    return [true, left, top]
+                }
+                return [false, brick.left - animal.width, top]
+
             }
-            if (animal.top > wall.top + wall.height) {
-                return [true, left, top]
+            /////////////////////////////////ХОМЯ БЕЖИТ ВВЕРХ
+            if (animal.top > top && animal.left === left) {
+                if (animal.width + animal.left < wall.left) {
+                    return [true, left, top]
+                }
+
+                if (animal.left > wall.width + wall.left) {
+                    return [true, left, top]
+                }
+
+                if (top > wall.height + wall.top) {
+                    return [true, left, top]
+                }
+                return [false, left, wall.height + wall.top]
             }
-            return [false, brick.left - animal.width, top]
+            /////////////////////////////////ХОМЯ БЕЖИТ ВЛЕВО
+            if (animal.top === top && animal.left > left) {
+
+                if (animal.height + animal.top < wall.top) {
+                    return [true, left, top]
+                }
+                if (animal.top > wall.top + wall.height) {
+                    return [true, left, top]
+                }
+                if (wall.left + wall.width < left) {
+                    return [true, left, top]
+                }
+                return [false, brick.left + brick.width, top]
+            }
+
+
+            /////////////////////////////////ХОМЯ БЕЖИТ ВНИЗ
+            if (animal.top < top && animal.left === left) {
+
+                if (animal.width + animal.left < wall.left) {
+                    return [true, left, top]
+                }
+
+                if (animal.left > wall.width + wall.left) {
+                    return [true, left, top]
+                }
+
+                if (top+ animal.height < wall.top) {
+                    return [true, left, top]
+                }
+                return [false, left, wall.top-animal.height]
+            }
         }
+
+
         setTimeout(() => {
-            const [success, left, top] = wallRunThrough(hamster, wall, 800, hamster.top)
-            if (success) {
-                alert("WOW HE MADE IT!")
-            } else {
-                alert("Грызи её как ты грыз свой картон")
-            }
+            const [success, left, top] = wallRunThrough(hamster, wall, 756, hamster.top)
+            // if (success) {
+            //     alert("WOW HE MADE IT!")
+            // } else {
+            //     alert("Грызи её как ты грыз свой картон")
+            // }
             hamster.left = left
             hamster.top = top
             drawElement(hamster)
         }, 1000)
 
+        setTimeout(() => {
+            const [success, left, top] = wallRunThrough(hamster, wall, hamster.left, 900)
+            // if (success) {
+            //     alert("WOW HE MADE IT!")
+            // } else {
+            //     alert("Грызи её как ты грыз свой картон")
+            // }
+            hamster.left = left
+            hamster.top = top
+            drawElement(hamster)
+        }, 2000)
 
+        // setTimeout(() => {
+        //     const [success, left, top] = wallRunThrough(hamster, wall, hamster.left,1000)
+        //     // if (success) {
+        //     //     alert("WOW HE MADE IT!")
+        //     // } else {
+        //     //     alert("Грызи её как ты грыз свой картон")
+        //     // }
+        //     hamster.left = left
+        //     hamster.top = top
+        //     drawElement(hamster)
+        // }, 3000)
     </script>
     <style>
         .hamster-object,
