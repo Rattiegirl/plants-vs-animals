@@ -10,24 +10,55 @@
 
 <body>
     <div class="hamster-object"></div>
-    <div class="wall-object"></div>
+    <div class="wall-object-1"></div>
+    <div class="wall-object-2"></div>
+    <div class="wall-object-3"></div>
+    <div class="wall-object-4"></div>
 
     <script>
         const hamster = {
             el: document.querySelector('.hamster-object'),
             width: 70,
             height: 70,
-            top: 230,
-            left: 70
+            top: 900,
+            left: 800
         }
 
-        const wall = {
-            el: document.querySelector(".wall-object"),
-            width: 220,
+        const wall1 = {
+            el: document.querySelector(".wall-object-1"),
+            width: 94,
             height: 500,
-            top: 0,
+            top: 800,
             left: 680,
         }
+
+
+        const wall2 = {
+            el: document.querySelector(".wall-object-2"),
+            width: 293,
+            height: 500,
+            top: -300,
+            left: 780,
+        }
+
+        const wall3 = {
+            el: document.querySelector(".wall-object-3"),
+            width: 79,
+            height: 500,
+            top: 0,
+            left: 880,
+        }
+        
+        const wall4 = {
+            el: document.querySelector(".wall-object-4"),
+            width: 397,
+            height: 30,
+            top: 210,
+            left: 500,
+        }
+        const walls = [wall1, wall2, wall3, wall4]
+
+
 
         const drawElement = (obj) => {
             obj.el.style.width = `${obj.width}px`
@@ -38,50 +69,55 @@
 
 
         drawElement(hamster)
-        drawElement(wall)
+        drawElement(wall1)
+        drawElement(wall2)
+
+        drawElement(wall3)
+        drawElement(wall4)
+
 
 
         const wallRunThrough = (animal, brick, left, top) => {
             /////// ХОМЯ БЕЖИТ ВПРАВО!!!!
-            if (animal.left < left && animal.top === top) {
+            if (animal.left <= left && animal.top === top) {
 
-                if (animal.height + animal.top < wall.top) {
+                if (animal.height + animal.top <= brick.top) {
                     return [true, left, top]
                 }
-                if (animal.top > wall.top + wall.height) {
+                if (animal.top >= brick.top + brick.height) {
                     return [true, left, top]
                 }
-                if (brick.left - animal.width > left) {
+                if (brick.left - animal.width >= left) {
                     return [true, left, top]
                 }
                 return [false, brick.left - animal.width, top]
 
             }
             /////////////////////////////////ХОМЯ БЕЖИТ ВВЕРХ
-            if (animal.top > top && animal.left === left) {
-                if (animal.width + animal.left < wall.left) {
+            if (animal.top >= top && animal.left === left) {
+                if (animal.width + animal.left <= brick.left) {
                     return [true, left, top]
                 }
 
-                if (animal.left > wall.width + wall.left) {
+                if (animal.left >= brick.width + brick.left) {
                     return [true, left, top]
                 }
 
-                if (top > wall.height + wall.top) {
+                if (top >= brick.height + brick.top) {
                     return [true, left, top]
                 }
-                return [false, left, wall.height + wall.top]
+                return [false, left, brick.height + brick.top]
             }
             /////////////////////////////////ХОМЯ БЕЖИТ ВЛЕВО
-            if (animal.top === top && animal.left > left) {
+            if (animal.top === top && animal.left >= left) {
 
-                if (animal.height + animal.top < wall.top) {
+                if (animal.height + animal.top <= brick.top) {
                     return [true, left, top]
                 }
-                if (animal.top > wall.top + wall.height) {
+                if (animal.top >= brick.top + brick.height) {
                     return [true, left, top]
                 }
-                if (wall.left + wall.width < left) {
+                if (brick.left + brick.width <= left) {
                     return [true, left, top]
                 }
                 return [false, brick.left + brick.width, top]
@@ -89,45 +125,90 @@
 
 
             /////////////////////////////////ХОМЯ БЕЖИТ ВНИЗ
-            if (animal.top < top && animal.left === left) {
+            if (animal.top <= top && animal.left === left) {
 
-                if (animal.width + animal.left < wall.left) {
+                if (animal.width + animal.left <= brick.left) {
                     return [true, left, top]
                 }
 
-                if (animal.left > wall.width + wall.left) {
+                if (animal.left >= brick.width + brick.left) {
                     return [true, left, top]
                 }
 
-                if (top+ animal.height < wall.top) {
+                if (top + animal.height <= brick.top) {
                     return [true, left, top]
                 }
-                return [false, left, wall.top-animal.height]
+                return [false, left, brick.top - animal.height]
             }
         }
-
-
+        const targetLeft = 4
+        const targetTop = 5
         setTimeout(() => {
-            const [success, left, top] = wallRunThrough(hamster, wall, 756, hamster.top)
-            // if (success) {
-            //     alert("WOW HE MADE IT!")
-            // } else {
-            //     alert("Грызи её как ты грыз свой картон")
-            // }
-            hamster.left = left
-            hamster.top = top
+            if (hamster.left < targetLeft) {
+                let minLeft = targetLeft
+                for (let wall of walls) {
+                    const result = wallRunThrough(hamster, wall, targetLeft, hamster.top)
+                    console.log(result)
+                    const [success, left, top] = result
+                    if (left <= minLeft && left > hamster.left) {
+                        minLeft = left
+
+                    }
+                }
+
+                hamster.left = minLeft
+
+            } else {
+                let maxLeft = targetLeft
+                for (let wall of walls) {
+                    const result = wallRunThrough(hamster, wall, targetLeft, hamster.top)
+                    console.log(result)
+                    const [success, left, top] = result
+                    if (left >= maxLeft && left < hamster.left) {
+                        maxLeft = left
+
+                    }
+                }
+
+                hamster.left = maxLeft
+
+            }
+
+
             drawElement(hamster)
         }, 1000)
 
         setTimeout(() => {
-            const [success, left, top] = wallRunThrough(hamster, wall, hamster.left, 900)
-            // if (success) {
-            //     alert("WOW HE MADE IT!")
-            // } else {
-            //     alert("Грызи её как ты грыз свой картон")
-            // }
-            hamster.left = left
-            hamster.top = top
+            if (hamster.top < targetTop) {
+
+                let minTop = targetTop
+                for (let wall of walls) {
+                    const result = wallRunThrough(hamster, wall, hamster.left, targetTop)
+                    console.log(result)
+                    const [success, left, top] = result
+                    if (top <= minTop && top > hamster.top) {
+                        minTop = top
+
+                    }
+                }
+
+                hamster.top = minTop
+            } else {
+
+                let maxTop = targetTop
+                for (let wall of walls) {
+                    const result = wallRunThrough(hamster, wall, hamster.left, targetTop)
+                    console.log(result)
+                    const [success, left, top] = result
+                    if (top >= maxTop && top < hamster.top) {
+                        maxTop = top
+
+                    }
+                }
+
+                hamster.top = maxTop
+
+            }
             drawElement(hamster)
         }, 2000)
 
@@ -145,17 +226,17 @@
     </script>
     <style>
         .hamster-object,
-        .wall-object {
+        .wall-object-1,
+        .wall-object-2,
+        .wall-object-3,
+        .wall-object-4 {
             position: absolute;
             transition: 0.7s;
+            background-color: rgb(68, 13, 13)
         }
 
         .hamster-object {
             background-color: rgb(226, 226, 158);
-        }
-
-        .wall-object {
-            background-color: rgb(68, 13, 13)
         }
     </style>
 </body>
