@@ -202,3 +202,21 @@ bottom:40px;
   height:100%;
   
 }
+.actionsMenu{
+  position:absolute;
+  left:200px;
+  top:200px;
+}
+.actionsMenu .item{
+  background-color:#FFE37E;
+  width:40px;
+  height:40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  transform-origin: center 80px;
+
+}

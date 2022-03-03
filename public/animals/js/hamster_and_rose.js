@@ -86,4 +86,12 @@ armoredBtn.onclick  = function(){
    animalSeeds-=3
    showSeeds()
 }
+const actionsMenu =document.querySelector(".actionsMenu")
+hamster.el.addEventListener("contextmenu", function(event){
+    event.preventDefault()
+    console.log(hamster)
+    actionsMenu.style.left=hamster.el.style.left
+    actionsMenu.style.top=hamster.el.style.top
+})
+
 

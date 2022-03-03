@@ -45,7 +45,30 @@
     params: {},
     
   }]
-
+  const rose_red=[{
+    type: 'plant',
+    name: 'rose_red',
+    command: "distract",
+    params: {},
+    
+  },{
+    type: 'plant',
+    name: 'rose_red',
+    command: "attack",
+    params: {target:"hamster_1"},
+    
+  },{
+    type: 'plant',
+    name: 'rose_red',
+    command: "letGo",
+    params: {target:"hamster_1"},
+  },{
+    type: 'plant',
+    name: 'rose_red',
+    command: "spike",
+    params: {x:0, y:0},
+    
+  }]
  const steps=[{
    text: "place wall, (150,400), choose wall, click on map"
 
@@ -71,6 +94,28 @@
   text: "hamster goTo (500, 500), click on hamster, click on map"       
 
 }] 
+
+const roseSteps=[{
+  text: "place rose, (300,400), select rose, click on map"
+},{
+
+  text: "place rose, (200, 400), select rose, click on map"
+},{
+
+  text: "place rose, (100, 400), select rose, click on map"
+},{
+
+  text: "place hamster, (50, 50), select hamster, click on map"
+},{
+
+  text: "hamster run"
+},{
+
+  text: "if hamster 10px from rose, click on rose, select attack mode"
+},{
+
+  text: "hamster captured"
+}]
   // {
   //   type: 'plant',
   //   name: 'rose_red',

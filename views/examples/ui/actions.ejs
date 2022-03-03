@@ -1,0 +1,9 @@
+<div class="actionsMenu">
+    <% let deg=-60 %>
+    <% for ( let item of ["attack", "sprint", "chew", "dig"]){%>
+        <div class="item" style="transform:translateY(-80px) rotate(<%= deg %>deg)">
+            <%= item %> 
+        </div>
+        <% deg+=50 %>
+    <%}%>
+</div>
