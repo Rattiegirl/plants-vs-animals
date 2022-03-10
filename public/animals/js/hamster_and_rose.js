@@ -87,11 +87,22 @@ armoredBtn.onclick  = function(){
    showSeeds()
 }
 const actionsMenu =document.querySelector(".actionsMenu")
+actionsMenu.addEventListener("click", function(event){
+if (event.target.classList.contains("item")){
+    hotey( event.target.getAttribute("data-key"))
+
+}
+}) 
+
+hamster.doBeforeRun( function(){
+    actionsMenu.style.opacity = "0"
+})
 hamster.el.addEventListener("contextmenu", function(event){
     event.preventDefault()
     console.log(hamster)
-    actionsMenu.style.left=hamster.el.style.left
-    actionsMenu.style.top=hamster.el.style.top
+    actionsMenu.style.opacity = "1"
+    actionsMenu.style.left=parseInt (hamster.el.style.left)+5+"px"
+    actionsMenu.style.top=parseInt (hamster.el.style.top)+15+"px"
 })
 
 

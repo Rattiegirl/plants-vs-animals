@@ -1,8 +1,8 @@
 <div class="actionsMenu">
     <% let deg=-60 %>
-    <% for ( let item of ["attack", "sprint", "chew", "dig"]){%>
-        <div class="item" style="transform:translateY(-80px) rotate(<%= deg %>deg)">
-            <%= item %> 
+    <% for ( let item of [["attack","a"], ["sprint", "p"], ["chew", "c"], ["dig", "d"], ["sit","s"]]){%>
+        <div class="item" data-key="<%= item[1] %>" style="transform:translateY(-80px) rotate(<%= deg %>deg)">
+            <%= item[0] %> 
         </div>
         <% deg+=50 %>
     <%}%>

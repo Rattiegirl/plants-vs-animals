@@ -40,6 +40,10 @@ function Hamster() {
   }
 
   this.run = function () {
+    if (this.beforeRunCallback) {
+      this.beforeRunCallback()
+
+    }
     el.setAttribute("data-mode", "running")
   }
 
@@ -155,9 +159,12 @@ function Hamster() {
     me.render();
   }, 100)
 
-
+ this.doBeforeRun = function(callback){
+this.beforeRunCallback= callback
+ } 
 
 }
+
 
 
 

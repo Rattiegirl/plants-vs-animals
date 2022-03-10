@@ -16,6 +16,16 @@ function showSeeds() {
     armorEl.style.opacity = 0
   }
 }
+function hotKey(letter){
+  if (letter === "d") {
+    hamster.dig();
+  }
+
+  if (letter === "s") {
+    hamster.sit();
+  }
+}
+
 document.addEventListener("keydown", function (event) {
   console.log(event)
   if (paused) return
@@ -35,15 +45,9 @@ document.addEventListener("keydown", function (event) {
     hamster.goLeft();
   }
 
-  if (event.key === "d") {
-    hamster.dig();
-  }
+ hotKey(event.key)
 
-  if (event.key === "s") {
-    hamster.sit();
-  }
-
-
+ 
 function eatingRose(){
   animalPoints += 1
   animalSeeds += 1
