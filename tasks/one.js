@@ -18,3 +18,4 @@ const settings = {
 for ( let option in settings){
     console.log(option, settings[option])
 }
+
