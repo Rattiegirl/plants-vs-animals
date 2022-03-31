@@ -46,6 +46,8 @@ const changeCharacter = (character) => {
     }
 };
 const randomBtn = document.querySelector(".btn-random")
+const rightBtn = document.querySelector(".btn-right")
+const leftBtn = document.querySelector(".btn-left")
 const getRandom = (k) => {
     let star = Math.random() * k + 1
     star = Math.floor(star)
@@ -56,21 +58,28 @@ randomBtn.addEventListener("click", (event) => {
     event.preventDefault()
     console.log(globalCharacterObject)
     const items = {
-        body: { count: 2 },
+        body: { count: 3 },
         armor: { count: 2 },
-        belt: { count: 1 },
+        belt: { count: 3 },
+        hat:{count:1}
 
     }
-    for (let item in items) {
+
+    for(let item in items) {
         globalCharacterObject.fields[item] = {
             index: 1,
             src: `${item}-${getRandom(items[item].count)}.svg`,
         };
     }
-
-
-
-
-
     renderCharacter(globalCharacterObject, characterImageWrapperEl);
+})
+
+rightBtn.addEventListener("click", (event)=>{
+    event.preventDefault()
+    characterImageWrapperEl.style.transform="scaleX(-1)"
+})
+
+leftBtn.addEventListener("click",(event)=>{
+    event.preventDefault()
+    characterImageWrapperEl.style.transform="scaleX(1)"
 })

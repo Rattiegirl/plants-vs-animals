@@ -2,6 +2,8 @@
     width: 300px;
     height: 300px;
     position: relative;
+    background-color:deepskyblue;
+    transition: 0.3s;
   }
   
   .character-image-wrapper img {
@@ -10,6 +12,7 @@
     position: absolute;
     top: 0;
     left: 0;
+    
   }
   
   .fields-wrapper .w-label {

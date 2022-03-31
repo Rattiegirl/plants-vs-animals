@@ -14,10 +14,21 @@ const characters = [
         title:"Хомяки",
         value: "hamster",
         items:{
-            body:{count:2},
+            body:{count:3},
             armor:{count:2},
-            belt:{count:1},
+            belt:{count:3},
+            hat:{count:1}
         }
+    },
+    {
+      title:"Розы",
+      value: "rose",
+      items:{
+        pose:{count:3},
+        stem:{count:3},
+        flower:{count:3},
+        thorns:{count:3},
+      }
     }
   ];
   
