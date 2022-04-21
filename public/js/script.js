@@ -48,6 +48,8 @@ const changeCharacter = (character) => {
 const randomBtn = document.querySelector(".btn-random")
 const rightBtn = document.querySelector(".btn-right")
 const leftBtn = document.querySelector(".btn-left")
+const upBtn = document.querySelector(".btn-up")
+const downBtn = document.querySelector(".btn-down")
 const getRandom = (k) => {
     let star = Math.random() * k + 1
     star = Math.floor(star)
@@ -82,4 +84,12 @@ rightBtn.addEventListener("click", (event)=>{
 leftBtn.addEventListener("click",(event)=>{
     event.preventDefault()
     characterImageWrapperEl.style.transform="scaleX(1)"
+})
+upBtn.addEventListener("click",(event)=>{
+    event.preventDefault()
+    characterImageWrapperEl.style.transform="scaleY(-1)"
+})
+downBtn.addEventListener("click",(event)=>{
+    event.preventDefault()
+    characterImageWrapperEl.style.transform="scaleY(1)"
 })

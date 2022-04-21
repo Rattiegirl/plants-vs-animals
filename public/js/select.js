@@ -26,10 +26,23 @@ const characters = [
       items:{
         pose:{count:3},
         stem:{count:3},
-        flower:{count:3},
+        flower:{count:3}, 
         thorns:{count:3},
-      }
-    }
+      },
+    },
+    {
+      title: "Утёнок",
+     value: "duck",
+     items:{
+      mohawk:{count:3},
+      tail:{count:3},
+      body:{count:3}, 
+      wings:{count:3},
+     
+      },
+    },
+   
+    
   ];
   
   const getCharacterInputsSettings = (characterValue) => {
