@@ -1,14 +1,15 @@
 const express = require('express');
 const app = express();
 const PORT = 3000;
+const { menu } = require("./menu");
 
 app.set("view engine", "ejs")
 
 app.use(express.static('public'));
 
 app.get("/", (req, res) => {
-  res.send("Hamster prepares you for the battlefield!");
-});
+  res.render("navigation", { menu })
+})
 app.get("/game", (req, res) => {
   res.send("The New Game");
 });
