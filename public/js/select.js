@@ -40,9 +40,18 @@ const characters = [
       wings:{count:3},
      
       },
+
     },
-   
-    
+   {
+      title: "Зелёный Попугай",
+     value: "Green Parrot",
+     items:{
+      body:{count:3},
+      tail:{count:3},
+      wings:{count:3},
+     
+      },
+    },
   ];
   
   const getCharacterInputsSettings = (characterValue) => {
