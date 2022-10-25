@@ -14,6 +14,7 @@ app.get("/", (req, res) => {
 app.get("/game", (req, res) => {
   res.send("The New Game");
 });
+
 app.get("/examples/hamster-vs-rose", (req, res) => {
   const welcomeText="Приветствует Царь Хомя всех своих подданных!";
   res.render("hamster-vs-rose",{
