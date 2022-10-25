@@ -10,6 +10,7 @@ app.use(express.static('public'));
 app.get("/", (req, res) => {
   res.render("navigation", { menu })
 })
+
 app.get("/game", (req, res) => {
   res.send("The New Game");
 });
