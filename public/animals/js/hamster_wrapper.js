@@ -1,4 +1,6 @@
 function Hamster() {
+  const me = this
+  ////render
   const el = document.querySelector("#hamster_wrapper")
   this.el = el
   let humsterRunEl = el.querySelector("#hamster_run")
@@ -8,7 +10,7 @@ function Hamster() {
     humsterRunEl = el.querySelector("#hamster_knight_run")
 
   }
-
+////logic
   let x = 0;
   let y = 0;
   const size = 50;
@@ -20,14 +22,14 @@ function Hamster() {
     width: 1500,
     height: 700,
   }
-
+////render
   el.style.width = size + "px"
   el.style.height = size + "px"
 
   this.direction = "left"
 
-  const me = this
   
+
   this.render = function () {
     el.style.left = x + "px"
     el.style.top = y + "px"
@@ -40,6 +42,7 @@ function Hamster() {
   }
 
   this.run = function () {
+      ////a tiny bit of logic
     if (this.beforeRunCallback) {
       this.beforeRunCallback()
 
@@ -58,7 +61,7 @@ function Hamster() {
   this.distracted = function () {
     el.setAttribute("data-mode", "distracted")
   }
-
+////logic
   this.goTo = function (destinationX, destinationY) {
     if (isBusy) return
     isBusy = true
@@ -70,13 +73,13 @@ function Hamster() {
     // отправляем хомячка на восток или на запад
     el.style.transition = deltaXTime + 'ms'
     x = destinationX;
-    // if (destinationX>x){
+  
     if (deltaX > 0) {
       this.goRight()
-      // alert("Я бегу на восток! " + (destinationX-x))
+     
     } else {
       this.goLeft()
-      // alert("Я бегу на запад! " + (x-destinationX))
+     
     }
     setTimeout(function () {
       el.style.transition = deltaYTime + 'ms'
@@ -84,10 +87,10 @@ function Hamster() {
       y = destinationY
       if (deltaY > 0) {
         me.goDown()
-        // alert("Я бегу на Юг! " + (destinationY-y))
+       
       } else {
         me.goUp()
-        // alert("Я бегу на север! " + (y-destinationY))
+       
       }
       setTimeout(function () {
         me.sit()
@@ -96,7 +99,7 @@ function Hamster() {
       }, deltaYTime)
     }, deltaXTime)
   }
-
+////logical render
   this.goUp = function () {
     this.run();
     this.direction = "top";
@@ -137,31 +140,32 @@ function Hamster() {
 
     x = x - step;
   }
-
+////render
   this.armor = function () {
     el.classList.add("armored")
     humsterRunEl = el.querySelector("#hamster_knight_run")
   }
 
-  this.isArmored = function(){
-   return el.classList.contains("armored")
+  this.isArmored = function () {
+    return el.classList.contains("armored")
   }
-  this.noArmor = function(){
+  this.noArmor = function () {
     el.classList.remove("armored")
     humsterRunEl = el.querySelector("#hamster_run")
   }
+  ////logic
   this.getCoords = function () {
     return { x, y }
   }
-
+////render
   setInterval(function () {
     if (paused) return
     me.render();
   }, 100)
-
- this.doBeforeRun = function(callback){
-this.beforeRunCallback= callback
- } 
+////logic
+  this.doBeforeRun = function (callback) {
+    this.beforeRunCallback = callback
+  }
 
 }
 
@@ -174,6 +178,6 @@ this.beforeRunCallback= callback
 //hamster.goDown();
 // hamster.goRight();
 //hamster.goLeft();
-//hamster.chew(); 
+//hamster.chew();
 //hamster.dig();
 //hamster.distracted();
