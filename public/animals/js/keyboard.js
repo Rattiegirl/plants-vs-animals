@@ -84,7 +84,7 @@ eatingRose()
 
 })
 function intersect(plant, animal) {
-  const { x, y } = animal.getCoords()
+  const { x, y } = animal
   const { x: x1, y: y1 } = plant.getCoords()
   if (Math.abs(x - x1) > 60) {
     return false

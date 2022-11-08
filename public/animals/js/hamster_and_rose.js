@@ -1,7 +1,15 @@
 
 let paused = true
-const hamster = new Hamster();
-
+const hamsterEl = document.querySelector("#hamster_wrapper")
+const scene = {
+    width: 1500,
+    height: 700,
+  }
+const hamster = new Hamster(hamsterEl, scene);
+setInterval(function () {
+    if (paused) return
+    hamster.render();
+  }, 100)
 const rose = new Rose();
 
 rose.plant(
@@ -94,9 +102,9 @@ if (event.target.classList.contains("item")){
 }
 }) 
 
-hamster.doBeforeRun( function(){
+hamster.doBeforeRun = function(){
     actionsMenu.style.opacity = "0"
-})
+}
 hamster.el.addEventListener("contextmenu", function(event){
     event.preventDefault()
     console.log(hamster)
