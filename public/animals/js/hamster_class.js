@@ -12,6 +12,7 @@ class Hamster {
         this.hamsterRunEl = el.querySelector("#hamster_run")
         this.initRender()
 
+
     }
 
     ////render
@@ -29,9 +30,9 @@ class Hamster {
         this.humsterRunEl = this.el.querySelector("#hamster_knight_run")
     }
 
-    //   this.isArmored = function () {
-    //     return this.el.classList.contains("armored")
-    //   }
+      isArmored() {
+        return this.el.classList.contains("armored")
+      }
     noArmor() {
         this.el.classList.remove("armored")
         this.humsterRunEl = this.el.querySelector("#hamster_run")

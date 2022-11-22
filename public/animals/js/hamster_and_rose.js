@@ -1,27 +1,39 @@
 
 let paused = true
 const hamsterEl = document.querySelector("#hamster_wrapper")
+const birdEl = document.querySelector("#bird_wrapper")
+const roseEl = document.querySelector("#rose_wrapper")
+
 const scene = {
+    paused:true,
     width: 1500,
     height: 700,
   }
 const hamster = new Hamster(hamsterEl, scene);
+const bird = new Bird(birdEl, scene);
 setInterval(function () {
-    if (paused) return
+    if (scene.paused) return
     hamster.render();
+    bird.render();
   }, 100)
-const rose = new Rose();
 
-rose.plant(
-    Math.floor(Math.random() * 1000),
-    Math.floor(Math.random() * 600));
+
+  
+
+
+const rose = new Rose(roseEl, scene);
+const x = Math.floor(Math.random() *scene.width)
+const y = Math.floor(Math.random() *scene.height)
+rose.plant(x,y );
+
+bird.goTo(x, y + 10) 
 
 const timer = document.querySelector(".timer")
 let seconds = 30
 const chewRose = 3
 const intervalId = setInterval(
     function () {
-        if (paused) return
+        if (scene.paused) return
         seconds = seconds - 1
         timer.innerText = "00:" + (seconds + "").padStart(2, "0")
         if (seconds < 1) {
@@ -55,21 +67,23 @@ const winnerAnimal = document.querySelector(".winner-animal")
 const winnerPlant = document.querySelector(".winner-plant")
 const restartGameBtn = document.querySelector(".restart-game-btn")
 const play = function () {
-    paused = false
-    rose.plant(
-        Math.floor(Math.random() * 1000),
-        Math.floor(Math.random() * 600));
+    scene.paused = false
+    const x = Math.floor(Math.random() *scene.width)
+const y = Math.floor(Math.random() *scene.height)
+rose.plant(x,y );
+
+bird.goTo(x, y + 10)  
     playPauseBtn.innerText = "Pause"
 
 }
 const pause = function () {
-    paused = true
+    scene.paused = true
     playPauseBtn.innerText = "Play"
 }
 playPauseBtn.onclick = function () {
     //// alert("You started the game!")
     if (
-        paused === true
+        scene.paused === true
     ) {
         play()
     } else {

@@ -16,7 +16,7 @@ function showSeeds() {
     armorEl.style.opacity = 0
   }
 }
-function hotKey(letter){
+function hotKey(letter) {
   if (letter === "d") {
     hamster.dig();
   }
@@ -28,7 +28,7 @@ function hotKey(letter){
 
 document.addEventListener("keydown", function (event) {
   console.log(event)
-  if (paused) return
+  if (scene.paused) return
   if (event.key === "ArrowDown") {
     hamster.goDown();
   }
@@ -45,25 +45,27 @@ document.addEventListener("keydown", function (event) {
     hamster.goLeft();
   }
 
- hotKey(event.key)
+  hotKey(event.key)
 
- 
-function eatingRose(){
-  animalPoints += 1
-  animalSeeds += 1
-  showSeeds()
-  animalPointsEl.innerText = animalPoints
-  rose.plant(
-    Math.floor(Math.random() * 1000),
-    Math.floor(Math.random() * 600));
-}
+
+  function eatingRose() {
+    animalPoints += 1
+    animalSeeds += 1
+    showSeeds()
+    animalPointsEl.innerText = animalPoints
+    const x = Math.floor(Math.random() * scene.width)
+    const y = Math.floor(Math.random() * scene.height)
+    rose.plant(x, y);
+
+    bird.goTo(x, y + 10)
+  }
   if (event.key === "c") {
     hamster.chew();
     if (intersect(rose, hamster)) {
       if (rose.getDataMode() === "attacking") {
         if (hamster.isArmored()) {
-        hamster.noArmor()
-eatingRose()
+          hamster.noArmor()
+          eatingRose()
         } else {
           alert("Хомя не успел")
           alert("Хомя съел " + animalPoints)
@@ -72,7 +74,7 @@ eatingRose()
 
       }
       else {
-       eatingRose()
+        eatingRose()
       }
 
     }
@@ -85,7 +87,7 @@ eatingRose()
 })
 function intersect(plant, animal) {
   const { x, y } = animal
-  const { x: x1, y: y1 } = plant.getCoords()
+  const { x: x1, y: y1 } = plant
   if (Math.abs(x - x1) > 60) {
     return false
   }
@@ -99,7 +101,7 @@ function intersect(plant, animal) {
 
 
 document.addEventListener("click", function (event) {
-  if (paused) return
+  if (scene.paused) return
   if (event.target.getAttribute("id") === "scene") {
     hamster.goTo(event.layerX, event.layerY)
   }
@@ -107,9 +109,9 @@ document.addEventListener("click", function (event) {
 
 })
 
-document.querySelector("#rose_wrapper").addEventListener("click", function (event) {
-  if (paused) return
+rose.el.addEventListener("click", function (event) {
+  if (scene.paused) return
   console.log(event)
-  const { x, y } = rose.getCoords()
+  const { x, y } = rose
   hamster.goTo(x, y)
 })
