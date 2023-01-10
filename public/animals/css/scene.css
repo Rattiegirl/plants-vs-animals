@@ -187,11 +187,36 @@ bottom:40px;
 .seeds img{
   height:100%;
 }
-
+.d-flex{
+  display:flex;
+  flex-wrap:wrap;
+}
 #shop{
   position:absolute;
   right: 10px;
   bottom:10px;
+  width:300px;
+}
+.good{
+  width:33%;
+border: 3px solid gold;
+border-radius: 6px;
+padding: 6px;
+position: relative;
+}
+.good .title{
+  height: 35px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.good .seeds{
+position: absolute;
+bottom: 10px;
+}
+.good img{
+  width:100%;
 }
 .armor{
   height: 55px;

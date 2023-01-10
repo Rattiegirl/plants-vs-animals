@@ -1,5 +1,5 @@
 class Rose {
-    constructor(el, scene, x = 0, y = 0, size = 85) {
+    constructor(el, scene, firstInterval, secondInterval, x = 0, y = 0, size = 85) {
         this.x = x;
         this.y = y;
         this.size = size;
@@ -8,7 +8,8 @@ class Rose {
         this.initRender()
         this.timeout1 = null
         this.timeout2 = null
-       
+        this.firstInterval = firstInterval
+        this.secondInterval = secondInterval
     }
 
     ///render
@@ -52,7 +53,7 @@ class Rose {
             this.timeout2 = setTimeout(() => {
                 if (this.scene.paused) return
                 this.attack()
-            }, 1500)
-        }, 2000)
+            }, this.secondInterval)
+        }, this.firstInterval)
     }
 }
