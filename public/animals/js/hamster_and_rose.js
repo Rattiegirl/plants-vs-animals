@@ -13,6 +13,7 @@ const hamster = new Hamster(hamsterEl, game.scene);
 const bird = new Bird(birdEl, game.scene);
 game.addAnimal(hamster)
 game.addAnimal(bird)
+game.activeHero = hamster
 const rose = new Rose(roseEl, game.scene, 3000, 2000);
 game.startTicker()
 const scene = game.scene
@@ -40,7 +41,7 @@ game.startTimer()
 
 const shopEl = document.querySelector('#shop')
 ////////////////////////////////////////Покупайте за низкую цену
-const shop = new Shop (shopEl, "plant", game)
+const shop = new Shop (shopEl, "animal", game)
 // const armoredBtn = document.querySelector("#shop .armor")
 // armoredBtn.onclick = function () {
 //     hamster.armor()
@@ -55,15 +56,6 @@ actionsMenu.addEventListener("click", function (event) {
     }
 })
 // всего не видно
-hamster.doBeforeRun = function () {
-    actionsMenu.style.opacity = "0"
-}
-hamster.el.addEventListener("contextmenu", function (event) {
-    event.preventDefault()
-    console.log(hamster)
-    actionsMenu.style.opacity = "1"
-    actionsMenu.style.left = parseInt(hamster.el.style.left) + 5 + "px"
-    actionsMenu.style.top = parseInt(hamster.el.style.top) + 15 + "px"
-})
+
 
 

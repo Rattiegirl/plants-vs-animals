@@ -1,15 +1,15 @@
 const animalGoods = [
-    { name: 'armor', price: 3, enabledFor: ['hamster', "mouse"] },
-    { name: 'rocket-booster', price: 1, enabledFor: ['hamster'] },
+    { name: 'armor', img: "armor.png", price: 3, enabledFor: ['hamster', "mouse"] },
+    { name: 'rocket-booster', img: "rocket_booster.png", price: 1, enabledFor: ['hamster'] },
     { name: 'camouflauge-vest', img: "camoflauge_suit.png", price: 2, enabledFor: ['hamster', 'duckling'] },
     { name: 'saddle', img: "saddle.png", price: 3, enabledFor: ['bird'] },
     { name: 'bucket-of-water', img: "water_bucket.png", price: 3, enabledFor: ['hamster', "bird"] },
 
 ]
 const plantGoods = [
-    { name: 'iron-thorns', price: 2, enabledFor: ['rose'] },
+    { name: 'iron-thorns', img: "iron_thorns.png", price: 2, enabledFor: ['rose'] },
     { name: 'rose-seed', img: "rose_seeds.png", price: 4, enabledFor: ['rose'] },
-    { name: 'hanging-vine', price: 4, enabledFor: ['apple-tree'] },
+    { name: 'hanging-vine', img: "hanging_vines.png", price: 4, enabledFor: ['apple-tree'] },
     { name: 'apple-tree-seed', img: "apple_tree_seeds.png", price: 5, enabledFor: ['rose'] },
 
 
@@ -18,6 +18,7 @@ class Shop {
     constructor(el, team, game) {
         this.el = el
         this.team = team
+        this.game = game
         this.goods = team === "animal" ? animalGoods : plantGoods
         // this.armoredBtn = this.el.querySelector(".armor")
         // this.armoredBtn.onclick = function () {
@@ -53,6 +54,11 @@ ${this.goods.map((good) => {
         })
     }
     buy(goodName) {
-        alert(goodName)
+        const good = this.goods.find((item) => item.name === goodName)
+        if (this.game.seeds >= good.price) {
+            alert(`Вы купили ${good.name}`)
+        } else {
+            alert(`Вы не купили ${good.name}`)
+        }
     }
 }

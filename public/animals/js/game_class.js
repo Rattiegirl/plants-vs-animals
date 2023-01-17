@@ -11,6 +11,7 @@ class Game {
         this.seconds = seconds
         this.initButtons()
         this.needToEat = needToEat
+        this.seeds = 0
     }
     addAnimal(animal) {
         this.animals.push(animal)

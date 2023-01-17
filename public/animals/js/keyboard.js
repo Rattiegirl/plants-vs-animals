@@ -1,12 +1,11 @@
 let animalPoints = 0
-let animalSeeds = 0
 const animalPointsEl = document.querySelector("#animal-points")
 const animalSeedsEl = document.querySelector(".seeds")
 const armorEl = document.querySelector(".armor")
 //Семечки
 function showSeeds() {
   animalSeedsEl.innerHTML = ""
-  for (let i = 0; i < animalSeeds; i += 1) {
+  for (let i = 0; i < game.seeds; i += 1) {
     const imgEl = document.createElement("img")
     imgEl.setAttribute("src", "../img/sunflower_seed.png")
     animalSeedsEl.append(imgEl)
@@ -18,49 +17,24 @@ function showSeeds() {
   // }
 }
 // что делает Хомя когда ты нажимаешь на клавяши
-function hotKey(letter) {
-  if (letter === "d") {
-    hamster.dig();
-  }
 
-  if (letter === "s") {
-    hamster.sit();
-  }
-}
 // что делает Хомя когда ты нажимаешь на стрелки
 document.addEventListener("keydown", function (event) {
   console.log(event)
   if (scene.paused) return
-  if (event.key === "ArrowDown") {
-    hamster.goDown();
-  }
-
-  if (event.key === "ArrowUp") {
-    hamster.goUp();
-  }
-
-  if (event.key === "ArrowRight") {
-    hamster.goRight();
-  }
-
-  if (event.key === "ArrowLeft") {
-    hamster.goLeft();
-  }
-
-  hotKey(event.key)
-
-// Эсли Хомя сгрызает розу, он получает семечки
+  game.activeHero.buttonPressed(event.key)
+  // Эсли Хомя сгрызает розу, он получает семечки
   function eatingRose() {
     animalPoints += 1
-    animalSeeds += 1
+    game.seeds += 1
     showSeeds()
     animalPointsEl.innerText = animalPoints
     const x = Math.floor(Math.random() * scene.width)
     const y = Math.floor(Math.random() * scene.height)
-    rose.firstInterval = 500 + Math.floor(1500* Math.random())
-    rose.secondInterval = 1000 + Math.floor(1500*Math.random())
+    rose.firstInterval = 500 + Math.floor(1500 * Math.random())
+    rose.secondInterval = 1000 + Math.floor(1500 * Math.random())
     rose.plant(x, y);
-// птичка летит
+    // птичка летит
     bird.goTo(x, y + 10)
   }
   // как Хомя сгрызает розу, или роза успевает влючить защиту
@@ -84,12 +58,9 @@ document.addEventListener("keydown", function (event) {
 
     }
   }
-// что делает Хомя когда ты нажимаешь на клавяши
-  if (event.key === "l") {
-    hamster.distracted();
-  }
+  // что делает Хомя когда ты нажимаешь на клавяши
 
-}) 
+})
 // пересечения растения и животного
 function intersect(plant, animal) {
   const { x, y } = animal

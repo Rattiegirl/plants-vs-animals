@@ -30,6 +30,7 @@ const getGame = () => {
     const y = e.clientY;
     if (e.target.getAttribute("id") !== "game") return;
 
+    
     if (activeAnimal) {
       // activeAnimal.goTo({x, y});
       sendAction({
