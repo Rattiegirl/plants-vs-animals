@@ -8,6 +8,7 @@ class Game {
         }
         this.animals = []
         this.timerEl = this.el.querySelector(".timer")
+        this.seedsEl = document.querySelector(".seeds")
         this.seconds = seconds
         this.initButtons()
         this.needToEat = needToEat
@@ -108,5 +109,23 @@ class Game {
         ///////////////const chewRose = 3
     }
 
+    showSeeds() {
+        this.seedsEl.innerHTML = ""
+        for (let i = 0; i < game.seeds; i += 1) {
+          const imgEl = document.createElement("img")
+          imgEl.setAttribute("src", "../img/sunflower_seed.png")
+          this.seedsEl.append(imgEl)
+        }
+    }
 
+    addSeeds(seedAmount) {
+        this.seeds += seedAmount
+        this.showSeeds()
+    }
+
+    removeSeeds(seedAmount) {
+        this.seeds -= seedAmount
+        this.showSeeds()
+
+    }
 }

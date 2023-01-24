@@ -66,5 +66,18 @@ class Bird {
         }, deltaTime)
     }
 
-
+    useGood(good) {
+        if (good === "armor") {
+         /////////// el.css.img = (`/public/animals/img/armor/`);
+        } else if (good === "camouflage-vest") {
+         /////////// alert(`Bird has a camouflauge-vest`);
+        } else if (good === "rocket-booster") {
+         /////////// alert(`Bird has a rocket-booster`);
+        } else if (good === "bucket-of-water") {
+        //   el.style.step = 9;
+        //   el.style.transition = 200 + 'ms'
+        } else if (good === "saddle") {
+        // alert("Bird can be ridden");
+        }
+      }
 }

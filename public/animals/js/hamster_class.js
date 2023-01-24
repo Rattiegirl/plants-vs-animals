@@ -7,6 +7,7 @@ class Hamster {
     this.isBusy = false
     this.scene = scene
     this.direction = "left"
+    this.type = "hamster"
     ////render
     this.el = el;
     this.hamsterRunEl = el.querySelector("#hamster_run")
@@ -33,6 +34,7 @@ class Hamster {
     this.el.style.left = this.x + "px"
     this.el.style.top = this.y + "px"
   }
+
   armor() {
 
     this.el.classList.add("armored")
@@ -47,6 +49,30 @@ class Hamster {
     this.humsterRunEl = this.el.querySelector("#hamster_run")
   }
 
+  camouflaugeVest() {
+    ///изменить вид Хоми
+    ///лианы не видят
+    
+
+  }
+
+  rocketBooster() {
+    ///добавляется на Хомяка
+    ///при нажати на пробел скорость увеличивается на 5 секунд
+
+  }
+
+  bucketOfWater() {
+    ///добавляется на Хомяка
+    ///при выливании смывает ростки растенний
+
+  }
+
+  //saddle() {
+  //У Хомяка в инвентаре седло
+  //Хомяк надевает на ездовых животных седло
+  //
+  //}
   sit() {
     this.el.setAttribute("data-mode", "sitting");
   }
@@ -110,6 +136,26 @@ class Hamster {
       }, deltaYTime)
     }, deltaXTime)
   }
+
+    useGood(good) {
+      if (good === "armor") {
+        this.armor()
+      ////  hamster.css.img = (`/public/animals/img/armor/armor-0.1.svg`);
+      } else if (good === "camouflauge-vest") {
+        this.camouflaugeVest()
+      } else if (good === "rocket-booster"){
+        this.rocketBooster()
+      }else if (good === "bucket-of-water"){
+        this.bucketOfWater()
+       /// this.hamsterRunEl.style.step = 6
+      }
+      //else if (good=== "saddle"){
+       //this.saddle()
+      //}
+   }
+   
+
+  
   ////logical render
   goUp() {
     this.run();

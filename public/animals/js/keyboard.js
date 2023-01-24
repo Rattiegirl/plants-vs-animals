@@ -3,19 +3,13 @@ const animalPointsEl = document.querySelector("#animal-points")
 const animalSeedsEl = document.querySelector(".seeds")
 const armorEl = document.querySelector(".armor")
 //Семечки
-function showSeeds() {
-  animalSeedsEl.innerHTML = ""
-  for (let i = 0; i < game.seeds; i += 1) {
-    const imgEl = document.createElement("img")
-    imgEl.setAttribute("src", "../img/sunflower_seed.png")
-    animalSeedsEl.append(imgEl)
-  }
+
   // if (animalSeeds > 2) {
   //   armorEl.style.opacity = 1
   // } else {
   //   armorEl.style.opacity = 0
   // }
-}
+
 // что делает Хомя когда ты нажимаешь на клавяши
 
 // что делает Хомя когда ты нажимаешь на стрелки
@@ -26,8 +20,7 @@ document.addEventListener("keydown", function (event) {
   // Эсли Хомя сгрызает розу, он получает семечки
   function eatingRose() {
     animalPoints += 1
-    game.seeds += 1
-    showSeeds()
+    game.addSeeds(1)
     animalPointsEl.innerText = animalPoints
     const x = Math.floor(Math.random() * scene.width)
     const y = Math.floor(Math.random() * scene.height)

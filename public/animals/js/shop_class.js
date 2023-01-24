@@ -1,5 +1,5 @@
 const animalGoods = [
-    { name: 'armor', img: "armor.png", price: 3, enabledFor: ['hamster', "mouse"] },
+    { name: 'armor', img: "armor.png", price: 1, enabledFor: ['hamster', "mouse"] },
     { name: 'rocket-booster', img: "rocket_booster.png", price: 1, enabledFor: ['hamster'] },
     { name: 'camouflauge-vest', img: "camoflauge_suit.png", price: 2, enabledFor: ['hamster', 'duckling'] },
     { name: 'saddle', img: "saddle.png", price: 3, enabledFor: ['bird'] },
@@ -55,8 +55,10 @@ ${this.goods.map((good) => {
     }
     buy(goodName) {
         const good = this.goods.find((item) => item.name === goodName)
-        if (this.game.seeds >= good.price) {
-            alert(`Вы купили ${good.name}`)
+        if (this.game.seeds >= good.price && good.enabledFor.includes(this.game.activeHero.type)) {
+            this.game.activeHero.useGood(good.name)
+            this.game.removeSeeds(good.price)
+        ///////    alert(`Вы купили ${good.name}`)
         } else {
             alert(`Вы не купили ${good.name}`)
         }

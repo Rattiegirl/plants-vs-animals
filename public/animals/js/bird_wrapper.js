@@ -105,71 +105,76 @@ function Bird() {
     }, deltaTime)
   }
 
-  // this.goUp = function () {
-  //   this.run();
-  //   this.direction = "top";
-  //   humsterRunEl.style.transform = "rotate(90deg)"
-  //   if (y - step < 0) {
-  //     return false;
-  //   }
-  //   y = y - step
-  // }
 
-  // this.goDown = function () {
-  //   this.run();
-  //   this.direction = "down";
-  //   humsterRunEl.style.transform = "rotate(-90deg)"
-  //   if (y + step + size > scene.height) {
-  //     return false;
-  //   }
-  //   y = y + step
-  // }
+ 
 
-  // this.goRight = function () {
-  //   this.run();
-  //   this.direction = "right";
-  //   humsterRunEl.style.transform = "scale(-1,1)"
-  //   if (x + step + size > scene.width) {
-  //     return false;
-  //   }
-  //   x = x + step
-  // }
 
-  // this.goLeft = function () {
-  //   this.run();
-  //   this.direction = "left";
-  //   humsterRunEl.style.transform = "none"
-  //   if (x - step < 0) {
-  //     return false;
-  //   }
 
-  //   x = x - step;
-  // }
+    // this.goUp = function () {
+    //   this.run();
+    //   this.direction = "top";
+    //   humsterRunEl.style.transform = "rotate(90deg)"
+    //   if (y - step < 0) {
+    //     return false;
+    //   }
+    //   y = y - step
+    // }
 
-  // this.armor = function () {
-  //   el.classList.add("armored")
-  //   humsterRunEl = el.querySelector("#hamster_knight_run")
-  // }
+    // this.goDown = function () {
+    //   this.run();
+    //   this.direction = "down";
+    //   humsterRunEl.style.transform = "rotate(-90deg)"
+    //   if (y + step + size > scene.height) {
+    //     return false;
+    //   }
+    //   y = y + step
+    // }
 
-  // this.isArmored = function(){
-  //  return el.classList.contains("armored")
-  // }
-  // this.noArmor = function(){
-  //   el.classList.remove("armored")
-  //   humsterRunEl = el.querySelector("#hamster_run")
-  // }
-  this.getCoords = function () {
-    return { x, y }
+    // this.goRight = function () {
+    //   this.run();
+    //   this.direction = "right";
+    //   humsterRunEl.style.transform = "scale(-1,1)"
+    //   if (x + step + size > scene.width) {
+    //     return false;
+    //   }
+    //   x = x + step
+    // }
+
+    // this.goLeft = function () {
+    //   this.run();
+    //   this.direction = "left";
+    //   humsterRunEl.style.transform = "none"
+    //   if (x - step < 0) {
+    //     return false;
+    //   }
+
+    //   x = x - step;
+    // }
+
+    // this.armor = function () {
+    //   el.classList.add("armored")
+    //   humsterRunEl = el.querySelector("#hamster_knight_run")
+    // }
+
+    // this.isArmored = function(){
+    //  return el.classList.contains("armored")
+    // }
+    // this.noArmor = function(){
+    //   el.classList.remove("armored")
+    //   humsterRunEl = el.querySelector("#hamster_run")
+    // }
+    this.getCoords = function () {
+      return { x, y }
+    }
+
+    setInterval(function () {
+      if (paused) return
+      me.render();
+    }, 100)
+
+
+
   }
-
-  setInterval(function () {
-    if (paused) return
-    me.render();
-  }, 100)
-
-
-
-}
 
 
 
