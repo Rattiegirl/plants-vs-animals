@@ -8,18 +8,18 @@ const roseEl = document.querySelector("#rose_wrapper")
 
 
 //герои
-const game = new Game(sceneEl, 30, 10)
+const game = new Game(sceneEl, 180, 10)
 const hamster = new Hamster(hamsterEl, game.scene);
 const bird = new Bird(birdEl, game.scene);
 game.addAnimal(hamster)
 game.addAnimal(bird)
 game.activeHero = hamster
-const rose = new Rose(roseEl, game.scene, 3000, 2000);
+const rose = new Rose(roseEl, game.scene, 10000, 7000);
 game.startTicker()
 const scene = game.scene
 ///////todo: move these pesky lines
-const x = Math.floor(Math.random() * scene.width)
-const y = Math.floor(Math.random() * scene.height)
+const x = Math.floor(Math.random() * (scene.width - rose.size)) 
+const y = Math.floor(Math.random() * (scene.height  - rose.size))
 rose.plant(x, y);
 
 ////////////bird.goTo(x, y + 10) 

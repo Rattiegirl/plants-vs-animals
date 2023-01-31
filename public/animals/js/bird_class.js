@@ -26,6 +26,16 @@ class Bird {
         this.el.style.top = this.y + "px"
     }
 
+    bucketOfWater() {
+        ///добавляется на Птичку
+        ///при выливании смывает ростки растенний
+    
+    }
+
+    saddle() {
+        ///Кто-то должен прийти и одеть на птицу
+    }
+
 
     fly() {
         this.el.setAttribute("data-mode", "flying");
@@ -67,16 +77,12 @@ class Bird {
     }
 
     useGood(good) {
-        if (good === "armor") {
-         /////////// el.css.img = (`/public/animals/img/armor/`);
-        } else if (good === "camouflage-vest") {
-         /////////// alert(`Bird has a camouflauge-vest`);
-        } else if (good === "rocket-booster") {
-         /////////// alert(`Bird has a rocket-booster`);
-        } else if (good === "bucket-of-water") {
+        if (good === "bucket-of-water") {
+            this.bucketOfWater()
         //   el.style.step = 9;
         //   el.style.transition = 200 + 'ms'
         } else if (good === "saddle") {
+            this.saddle()
         // alert("Bird can be ridden");
         }
       }

@@ -3,8 +3,8 @@ class Game {
         this.el = el
         this.scene = {
             paused: true,
-            width: 1500,
-            height: 700,
+            width: 1100,
+            height: 650,
         }
         this.animals = []
         this.timerEl = this.el.querySelector(".timer")
@@ -13,6 +13,7 @@ class Game {
         this.initButtons()
         this.needToEat = needToEat
         this.seeds = 0
+        this.showSeeds()
     }
     addAnimal(animal) {
         this.animals.push(animal)
@@ -36,7 +37,9 @@ class Game {
             () => {
                 if (this.scene.paused) return
                 this.seconds = this.seconds - 1
-                this.timerEl.innerText = "00:" + (this.seconds + "").padStart(2, "0")
+                const minutes = (Math.floor(this.seconds/60) + "").padStart(2, "0")
+                const seconds = (Math.floor(this.seconds%60) + "").padStart(2, "0")
+                this.timerEl.innerText = `${minutes}:${seconds}` 
                 if (this.seconds < 1) {
                     this.seconds = 0
                     clearInterval(intervalId)
@@ -111,7 +114,7 @@ class Game {
 
     showSeeds() {
         this.seedsEl.innerHTML = ""
-        for (let i = 0; i < game.seeds; i += 1) {
+        for (let i = 0; i < this.seeds; i += 1) {
           const imgEl = document.createElement("img")
           imgEl.setAttribute("src", "../img/sunflower_seed.png")
           this.seedsEl.append(imgEl)

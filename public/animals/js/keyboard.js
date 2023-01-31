@@ -22,10 +22,10 @@ document.addEventListener("keydown", function (event) {
     animalPoints += 1
     game.addSeeds(1)
     animalPointsEl.innerText = animalPoints
-    const x = Math.floor(Math.random() * scene.width)
-    const y = Math.floor(Math.random() * scene.height)
-    rose.firstInterval = 500 + Math.floor(1500 * Math.random())
-    rose.secondInterval = 1000 + Math.floor(1500 * Math.random())
+    const x = Math.floor(Math.random() * (scene.width - rose.size)) 
+    const y = Math.floor(Math.random() * (scene.height - rose.size)) 
+    rose.beforeDistractsDelay = 500 + Math.floor(1500 * Math.random())
+    rose.beforeAttackDelay = 1000 + Math.floor(1500 * Math.random())
     rose.plant(x, y);
     // птичка летит
     bird.goTo(x, y + 10)

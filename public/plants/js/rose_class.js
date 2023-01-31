@@ -1,5 +1,5 @@
 class Rose {
-    constructor(el, scene, firstInterval, secondInterval, x = 0, y = 0, size = 85) {
+    constructor(el, scene, beforeDistractsDelay, beforeAttackDelay, x = 0, y = 0, size = 85) {
         this.x = x;
         this.y = y;
         this.size = size;
@@ -8,8 +8,8 @@ class Rose {
         this.initRender()
         this.timeout1 = null
         this.timeout2 = null
-        this.firstInterval = firstInterval
-        this.secondInterval = secondInterval
+        this.beforeDistractsDelay = beforeDistractsDelay
+        this.beforeAttackDelay = beforeAttackDelay
     }
 
     ///render
@@ -21,6 +21,19 @@ class Rose {
     render() {
         this.el.style.left = this.x + "px"
         this.el.style.top = this.y + "px"
+    }
+
+    ironThorns() {
+        ///Роза одевает, Хомя не может сгрызть без защиты, да и то просто защита у Хоми и розы ломается
+    }
+
+    roseSeed() {
+        ///Роза может посадить росток розы который за минуту выростает
+    }
+
+    appleTreeSeed() {
+        ///Роза может посадить росток яблочного дерева который вырастит за две минуты
+
     }
 
     wait() {
@@ -53,7 +66,18 @@ class Rose {
             this.timeout2 = setTimeout(() => {
                 if (this.scene.paused) return
                 this.attack()
-            }, this.secondInterval)
-        }, this.firstInterval)
+            }, this.beforeAttackDelay)
+        }, this.beforeDistractsDelay)
     }
+
+    useGood(good) {
+        if (good === "iron-thorns") {
+            this.ironThorns()
+        } else if (good === "rose-seed") {
+            this.roseSeed()
+        } else if (good === "apple-tree-seed") {
+            this.appleTreeSeed()
+        }
+    }
+
 }

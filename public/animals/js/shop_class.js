@@ -27,8 +27,14 @@ class Shop {
         //     // showSeeds()
         // }
         this.render()
+        this.renderButton()
         this.addEvents()
 
+    }
+    renderButton() {
+     const button = document.createElement("button") 
+     button.innerHTML = "shop"
+     this.game.el.appendChild(button)  
     }
     render() {
         this.el.innerHTML = `
