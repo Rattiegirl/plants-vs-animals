@@ -11,6 +11,10 @@ app.get("/", (req, res) => {
   res.render("navigation", { menu })
 })
 
+app.get("/hamster", (req, res) => {
+  res.render("examples/hamster_wrapper_2")
+})
+
 app.get("/game", (req, res) => {
   res.send("The New Game");
 });

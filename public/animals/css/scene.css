@@ -218,7 +218,7 @@ bottom: 10px;
 .good img{
   width:100%;
 }
-.armor{
+/* .armor{
   height: 55px;
   opacity:0;
 }
@@ -226,7 +226,7 @@ bottom: 10px;
 .armor img{
   height:100%;
   
-}
+} */
 .actionsMenu{
   position:absolute;
   left:200px;
@@ -244,4 +244,11 @@ bottom: 10px;
   position: absolute;
   transform-origin: center 80px;
 
+}
+
+.renderButton {
+position: absolute;
+right: 10px;
+bottom: 10px;
+background-color: rgb(255, 0, 0);
 }

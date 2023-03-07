@@ -63,6 +63,7 @@ class Game {
         /////////////////////////////////to-do refactoring 
         /////play and pause
         // как много кнопок и окон
+        this.renderButton = document.querySelector("#renderButton")
         this.playPauseBtn = document.querySelector("#play-pause-btn")
         const overlay = document.querySelector(".overlay")
         const startGameBtn = document.querySelector(".start-game-btn")

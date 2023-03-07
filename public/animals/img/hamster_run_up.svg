@@ -1,0 +1,41 @@
+<svg width="350" height="350" viewBox="0 0 350 350" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="hamster_run">
+<rect id="Rectangle 268" width="350" height="350" fill="#D9D9D9"/>
+<g id="hamster_run_up">
+<ellipse id="Ellipse 22" cx="177.02" cy="203.455" rx="136.455" ry="81.0202" transform="rotate(90 177.02 203.455)" fill="#FFD4AC"/>
+<g id="paw">
+<ellipse id="Ellipse 33" cx="105.779" cy="272.645" rx="4.59177" ry="11.0459" transform="rotate(170.663 105.779 272.645)" fill="#FFD4AC"/>
+<ellipse id="Ellipse 34" cx="116.108" cy="272.472" rx="4.59177" ry="11.0459" transform="rotate(178.223 116.108 272.472)" fill="#FFD4AC"/>
+<ellipse id="Ellipse 35" cx="127.184" cy="273.798" rx="4.59177" ry="11.0459" transform="rotate(-173.258 127.184 273.798)" fill="#FFD4AC"/>
+<ellipse id="Ellipse 36" cx="117.95" cy="284.534" rx="10.8685" ry="11.0459" transform="rotate(-173.258 117.95 284.534)" fill="#FFD4AC"/>
+</g>
+<g id="paw_2">
+<ellipse id="Ellipse 33_2" cx="227.779" cy="267.645" rx="4.59177" ry="11.0459" transform="rotate(170.663 227.779 267.645)" fill="#FFD4AC"/>
+<ellipse id="Ellipse 34_2" cx="238.108" cy="267.472" rx="4.59177" ry="11.0459" transform="rotate(178.223 238.108 267.472)" fill="#FFD4AC"/>
+<ellipse id="Ellipse 35_2" cx="249.184" cy="268.798" rx="4.59177" ry="11.0459" transform="rotate(-173.258 249.184 268.798)" fill="#FFD4AC"/>
+<ellipse id="Ellipse 36_2" cx="239.95" cy="279.534" rx="10.8685" ry="11.0459" transform="rotate(-173.258 239.95 279.534)" fill="#FFD4AC"/>
+</g>
+<g id="paw_3">
+<ellipse id="Ellipse 33_3" cx="221.779" cy="111.645" rx="4.59177" ry="11.0459" transform="rotate(170.663 221.779 111.645)" fill="#FFD4AC"/>
+<ellipse id="Ellipse 34_3" cx="232.108" cy="111.472" rx="4.59177" ry="11.0459" transform="rotate(178.223 232.108 111.472)" fill="#FFD4AC"/>
+<ellipse id="Ellipse 35_3" cx="243.184" cy="112.798" rx="4.59177" ry="11.0459" transform="rotate(-173.258 243.184 112.798)" fill="#FFD4AC"/>
+<ellipse id="Ellipse 36_3" cx="233.95" cy="123.534" rx="10.8685" ry="11.0459" transform="rotate(-173.258 233.95 123.534)" fill="#FFD4AC"/>
+</g>
+<g id="paw_4">
+<ellipse id="Ellipse 33_4" cx="110.779" cy="112.645" rx="4.59177" ry="11.0459" transform="rotate(170.663 110.779 112.645)" fill="#FFD4AC"/>
+<ellipse id="Ellipse 34_4" cx="121.108" cy="112.472" rx="4.59177" ry="11.0459" transform="rotate(178.223 121.108 112.472)" fill="#FFD4AC"/>
+<ellipse id="Ellipse 35_4" cx="132.184" cy="113.798" rx="4.59177" ry="11.0459" transform="rotate(-173.258 132.184 113.798)" fill="#FFD4AC"/>
+<ellipse id="Ellipse 36_4" cx="122.95" cy="124.534" rx="10.8685" ry="11.0459" transform="rotate(-173.258 122.95 124.534)" fill="#FFD4AC"/>
+</g>
+<ellipse id="Ellipse 23" cx="176.813" cy="81.9131" rx="73.9131" ry="68.2275" transform="rotate(90 176.813 81.9131)" fill="#FFDDBD"/>
+<path id="Polygon 6" d="M121.736 97.0409C121.71 98.4658 123.14 99.4603 124.467 98.9397L163.437 83.6461C164.925 83.0621 165.161 81.055 163.848 80.1423L125.653 53.5792C124.341 52.6666 122.541 53.586 122.511 55.1841L121.736 97.0409Z" fill="#FFD4AC"/>
+<path id="Polygon 7" d="M232.385 97.0409C232.412 98.4658 230.982 99.4603 229.655 98.9397L190.684 83.6461C189.196 83.0621 188.961 81.055 190.273 80.1424L228.469 53.5792C229.781 52.6666 231.581 53.586 231.61 55.1841L232.385 97.0409Z" fill="#FFD4AC"/>
+<path id="Ellipse 24" d="M150.248 44.7425C143.182 44.7425 137.455 39.6514 137.455 33.3712C137.455 27.0911 143.182 22 150.248 22C157.313 22 163.04 27.0911 163.04 33.3712C163.04 39.6514 157.313 44.7425 150.248 44.7425Z" fill="black"/>
+<ellipse id="Ellipse 26" cx="146.899" cy="38.2233" rx="2.84281" ry="1.42141" transform="rotate(17.8219 146.899 38.2233)" fill="white"/>
+<path id="Ellipse 27" d="M196.248 41.7425C189.182 41.7425 183.455 36.6514 183.455 30.3712C183.455 24.0911 189.182 19 196.248 19C203.313 19 209.04 24.0911 209.04 30.3713C209.04 36.6514 203.313 41.7425 196.248 41.7425Z" fill="black"/>
+<ellipse id="Ellipse 28" cx="192.899" cy="35.2233" rx="2.84281" ry="1.42141" transform="rotate(17.8219 192.899 35.2233)" fill="white"/>
+<ellipse id="Ellipse 32" cx="177.933" cy="339.686" rx="5.68563" ry="7.10703" transform="rotate(90 177.933 339.686)" fill="#FFD4AC"/>
+<ellipse id="Ellipse 29" cx="171.04" cy="13" rx="6" ry="11" transform="rotate(90 171.04 13)" fill="#FFB7B7"/>
+</g>
+</g>
+</svg>

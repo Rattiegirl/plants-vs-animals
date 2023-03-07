@@ -10,6 +10,39 @@ class Rose {
         this.timeout2 = null
         this.beforeDistractsDelay = beforeDistractsDelay
         this.beforeAttackDelay = beforeAttackDelay
+        this.goodsDictionary = {
+            "iron-thorns": {
+              count: 0,
+              max: 1,
+              using: () => {
+
+                // роза одевает броню на шипы, она ломается только когда бронированный Хомя нападает на розу. У Хоми броня тоже ломается.
+               
+                
+              },
+              loosing: () => {
+                
+              } 
+            },
+            "rose-seed": {
+              count: 0,
+              max: 3,
+              leftoverUses: 0,
+              using: (goodObject) => {
+                // роза может посадить ростки которые выростают через минуту и больше не боятся воды
+               
+               
+              },
+            
+            },
+            "apple-tree-seed": {
+              count: 0,
+              max: 2,
+              using: () => {
+                // роза может посадить росток яблони который выростает через полторы минуты и больше не боится воды
+              }
+            }
+          }
     }
 
     ///render

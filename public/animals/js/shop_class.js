@@ -6,6 +6,7 @@ const animalGoods = [
     { name: 'bucket-of-water', img: "water_bucket.png", price: 3, enabledFor: ['hamster', "bird"] },
 
 ]
+
 const plantGoods = [
     { name: 'iron-thorns', img: "iron_thorns.png", price: 2, enabledFor: ['rose'] },
     { name: 'rose-seed', img: "rose_seeds.png", price: 4, enabledFor: ['rose'] },
@@ -20,6 +21,7 @@ class Shop {
         this.team = team
         this.game = game
         this.goods = team === "animal" ? animalGoods : plantGoods
+        this.open = true
         // this.armoredBtn = this.el.querySelector(".armor")
         // this.armoredBtn.onclick = function () {
         //     // hamster.armor()
@@ -32,10 +34,28 @@ class Shop {
 
     }
     renderButton() {
-     const button = document.createElement("button") 
-     button.innerHTML = "shop"
-     this.game.el.appendChild(button)  
+        const button = document.createElement("button")
+        button.innerHTML = "shop"
+        this.game.el.appendChild(button)
+        button.classList.add("renderButton")
+        button.onclick = () => {
+            if(this.open) {
+                this.el.style.opacity = 0;
+                this.el.style.visibility = "hidden";
+                button.style.backgroundColor = "gold"
+                this.open = false
+            } else{
+                this.el.style.opacity = 1;
+                this.el.style.visibility = "visible";
+                button.style.backgroundColor = "red"
+                this.open = true
+            }
+           
+        }
     }
+
+
+
     render() {
         this.el.innerHTML = `
 <div class="d-flex">
@@ -61,10 +81,15 @@ ${this.goods.map((good) => {
     }
     buy(goodName) {
         const good = this.goods.find((item) => item.name === goodName)
-        if (this.game.seeds >= good.price && good.enabledFor.includes(this.game.activeHero.type)) {
+        if (
+            this.game.seeds >= good.price 
+            && good.enabledFor.includes(this.game.activeHero.type)
+            && this.game.activeHero.checkGood(good.name) === 0
+        ) {
             this.game.activeHero.useGood(good.name)
+
             this.game.removeSeeds(good.price)
-        ///////    alert(`Вы купили ${good.name}`)
+            ///////    alert(`Вы купили ${good.name}`)
         } else {
             alert(`Вы не купили ${good.name}`)
         }

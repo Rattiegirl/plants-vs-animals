@@ -1,0 +1,67 @@
+.hamster_wrapper_2 .layer{
+    transform-origin: center;
+    display:none;
+}
+.hamster_wrapper_2.turn-left.good-armor .hamster_armor_run{
+    display:block;
+}
+.hamster_wrapper_2.turn-right.good-armor .hamster_armor_run{
+    transform:scale(-1, 1);
+    display:block;
+}
+.hamster_wrapper_2.turn-right #hamster_run{
+    transform:scale(-1, 1);
+    display:block;
+}
+.hamster_wrapper_2.turn-left #hamster_run{
+    display:block;
+}
+.hamster_wrapper_2.turn-up .hamster_run_up{
+    display:block;
+}
+.hamster_wrapper_2.turn-down .hamster_run_up{
+    transform:scale(1, -1);
+    display:block;
+}
+
+/* #hamster_1,#hamster_knight_run, #hamster_knight_sit, #hamster_2,
+ #hamster_run_2, #hamster_run, #hamster_dig, #hamster_knight_chew,
+  #hamster_chew, #hamster_distracted, #dirt  {
+  display: none;
+}
+
+#hamster_run, #hamster_knight_run {
+  transform-origin: center;
+}
+
+#hamster_wrapper {
+  position: absolute;
+  transition: 0.3s;
+}
+
+#hamster_wrapper:not(.armored)[data-mode=sitting] #hamster_1 {
+  display: block;
+}
+#hamster_wrapper.armored[data-mode=sitting] #hamster_knight_sit
+ {
+  display: block;
+}
+#hamster_wrapper:not(.armored)[data-mode=running] #hamster_run {
+  display: block;
+}
+#hamster_wrapper.armored[data-mode=running] #hamster_knight_run {
+  display: block;
+}
+#hamster_wrapper:not(.armored)[data-mode=chewing] #hamster_chew {
+  display: block;
+}
+#hamster_wrapper.armored[data-mode=chewing] #hamster_knight_chew {
+  display: block;
+}
+#hamster_wrapper[data-mode=digging] #hamster_dig {
+  display: block;
+}
+#hamster_wrapper[data-mode=distracted] #hamster_distracted {
+  display: block;
+}
+ */
