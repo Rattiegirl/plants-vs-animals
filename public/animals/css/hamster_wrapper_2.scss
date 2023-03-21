@@ -1,4 +1,6 @@
-.hamster_wrapper_2 {
+.hamster_wrapper {
+  position: absolute;
+  transition: 0.3s;
   .layer {
     transform-origin: center;
     display: none;

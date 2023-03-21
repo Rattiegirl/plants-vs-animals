@@ -2,7 +2,7 @@
 // сначало все стоят
 let paused = true
 const sceneEl = document.querySelector("#scene")
-const hamsterEl = document.querySelector("#hamster_wrapper")
+const hamsterEl = document.querySelector(".hamster_wrapper")
 const birdEl = document.querySelector("#bird_wrapper")
 const roseEl = document.querySelector("#rose_wrapper")
 

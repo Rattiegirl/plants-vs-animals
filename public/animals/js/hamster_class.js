@@ -15,15 +15,15 @@ class Hamster {
         using: () => {
           // нельзя одновременно одевать броню и камуфляж
           // позволяет один раз съесть бронированую розу с потерей своей брони
-          this.el.classList.add("armored")
-          this.humsterRunEl = this.el.querySelector("#hamster_knight_run")
+          //this.el.classList.add("armored")
+          //this.humsterRunEl = this.el.querySelector("#hamster_knight_run")
         },
         loosing: () => {
-          this.el.classList.remove("armored")
-          this.humsterRunEl = this.el.querySelector("#hamster_run")
-        } 
+          //this.el.classList.remove("armored")
+          // this.humsterRunEl = this.el.querySelector("#hamster_run")
+        }
       },
-      "camouflauge-vest": {
+      "camoflauge": {
         count: 0,
         max: 1,
         leftoverUses: 0,
@@ -32,7 +32,7 @@ class Hamster {
           goodObject.leftoverUses = 3
           //можно стать невидимым три раза по 7 секунд
         },
-      
+
       },
       "rocket-booster": {
         count: 0,
@@ -41,7 +41,7 @@ class Hamster {
           //при нажатии на пробел ускоряется на 10 секунд
         }
       },
-      "bucket-of-water": {
+      "water-bucket": {
         count: 0,
         max: 2,
         using: () => {
@@ -73,14 +73,25 @@ class Hamster {
   initRender() {
     this.el.style.width = this.size + "px"
     this.el.style.height = this.size + "px"
+    this.updateClasses()
   }
   render() {
-    this.el.style.left= this.x + "px"
+    this.el.style.left = this.x + "px"
     this.el.style.top = this.y + "px"
   }
+  updateClasses() {
+    let classes = ["hamster_wrapper"]
+    classes.push(`turn-${this.direction}`)
+    const goodClasses = Object.keys(this.goodsDictionary).filter((good) => {
+      if (this.goodsDictionary[good].count > 0) {
+        return true
+      }
+      return false
+    }).map(good => `good-${good}`)
+    this.el.setAttribute("class", [...classes, ...goodClasses].join(" "))
+  }
 
-
-  camouflaugeVest() {
+  camoflaugeVest() {
     ///изменить вид Хоми
     ///лианы не видят
 
@@ -169,18 +180,19 @@ class Hamster {
   }
 
   useGood(good) {
-    if (!this.goodsDictionary[good]){
+    if (!this.goodsDictionary[good]) {
       alert(`Я не умею использовать ${good}`)
       return
     }
-    this.el.classList.add(good)
+    //this.el.classList.add(good)
     this.goodsDictionary[good].using(this.goodsDictionary[good])
     this.goodsDictionary[good].count += 1
+    this.updateClasses()
     // if (good === "armor") {
     //   this.armor()
 
-    // } else if (good === "camouflauge-vest") {
-    //   this.camouflaugeVest()
+    // } else if (good === "camoflauge-vest") {
+    //   this.camoflaugeVest()
     // } else if (good === "rocket-booster") {
     //   this.rocketBooster()
     // } else if (good === "bucket-of-water") {
@@ -190,28 +202,28 @@ class Hamster {
     //   alert(`Я не умею использовать ${good}`)
     //   return
     // }
-   
+
     console.log(this.goodsDictionary)
     //else if (good=== "saddle"){
     //this.saddle()
     //}
   }
   removeGood(good) {
-    if (!this.goodsDictionary[good]){
+    if (!this.goodsDictionary[good]) {
       alert(`Я не могу убрать ${good}`)
       return
     }
-    this.el.classList.remove(good)
+    //this.el.classList.remove(good)
     this.goodsDictionary[good]?.loosing()
     this.goodsDictionary[good].count -= 1
-
+    this.updateClasses()
     // if (good === "armor"){
     //   // this.el.classlist.remove("armored")
     //   this.noArmor()
     // }else if (good === "rocket-booster"){
     //   this.el.classlist.remove("withRocketBooster")
-    // }else if (good === "camouflauge-vest"){
-    //   this.el.classlist.remove("withCamouflaugeVest")
+    // }else if (good === "camoflauge-vest"){
+    //   this.el.classlist.remove("withcamoflaugeVest")
     // // }else if (good === "saddle"){
     // //   this.el.classlist.remove("withSaddle")
     // }else if (good === "bucket-of-water"){
@@ -227,8 +239,9 @@ class Hamster {
   ////logical render
   goUp() {
     this.run();
-    this.direction = "top";
-    this.hamsterRunEl.style.transform = "rotate(90deg)"
+    this.direction = "up";
+    this.updateClasses()
+    //this.hamsterRunEl.style.transform = "rotate(90deg)"
     if (this.y - this.step < 0) {
       return false;
     }
@@ -238,7 +251,8 @@ class Hamster {
   goDown() {
     this.run();
     this.direction = "down";
-    this.hamsterRunEl.style.transform = "rotate(-90deg)"
+    this.updateClasses()
+    //this.hamsterRunEl.style.transform = "rotate(-90deg)"
     if (this.y + this.step + this.size > this.scene.height) {
       return false;
     }
@@ -248,7 +262,8 @@ class Hamster {
   goRight() {
     this.run();
     this.direction = "right";
-    this.hamsterRunEl.style.transform = "scale(-1,1)"
+    this.updateClasses()
+    //this.hamsterRunEl.style.transform = "scale(-1,1)"
     if (this.x + this.step + this.size > this.scene.width) {
       return false;
     }
@@ -258,7 +273,8 @@ class Hamster {
   goLeft() {
     this.run();
     this.direction = "left";
-    this.hamsterRunEl.style.transform = "none"
+    this.updateClasses()
+    // this.hamsterRunEl.style.transform = "none"
     if (this.x - this.step < 0) {
       return false;
     }

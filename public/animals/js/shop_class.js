@@ -1,9 +1,9 @@
 const animalGoods = [
     { name: 'armor', img: "armor.png", price: 1, enabledFor: ['hamster', "mouse"] },
     { name: 'rocket-booster', img: "rocket_booster.png", price: 1, enabledFor: ['hamster'] },
-    { name: 'camouflauge-vest', img: "camoflauge_suit.png", price: 2, enabledFor: ['hamster', 'duckling'] },
+    { name: 'camoflauge', img: "camoflauge_suit.png", price: 2, enabledFor: ['hamster', 'duckling'] },
     { name: 'saddle', img: "saddle.png", price: 3, enabledFor: ['bird'] },
-    { name: 'bucket-of-water', img: "water_bucket.png", price: 3, enabledFor: ['hamster', "bird"] },
+    { name: 'water-bucket', img: "water_bucket.png", price: 3, enabledFor: ['hamster', "bird"] },
 
 ]
 
