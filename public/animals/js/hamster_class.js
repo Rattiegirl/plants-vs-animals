@@ -34,14 +34,14 @@ class Hamster {
         },
 
       },
-      "rocket-booster": {
+      "rocket_booster": {
         count: 0,
         max: 1,
         using: () => {
           //при нажатии на пробел ускоряется на 10 секунд
         }
       },
-      "water-bucket": {
+      "water_buckets": {
         count: 0,
         max: 2,
         using: () => {

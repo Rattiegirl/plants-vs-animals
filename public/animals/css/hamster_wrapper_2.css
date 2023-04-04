@@ -1,3 +1,31 @@
+.hamster_wrapper.turn-up.good-armor .hamster_armor_run_up, .hamster_wrapper.turn-down.good-armor .hamster_armor_run_up {
+  display: block;
+}
+.hamster_wrapper.turn-left.good-armor .hamster_armor_run, .hamster_wrapper.turn-right.good-armor .hamster_armor_run {
+  display: block;
+}
+
+.hamster_wrapper.turn-up.good-camoflauge .hamster_camoflauge_run_up, .hamster_wrapper.turn-down.good-camoflauge .hamster_camoflauge_run_up {
+  display: block;
+}
+.hamster_wrapper.turn-left.good-camoflauge .hamster_camoflauge_run, .hamster_wrapper.turn-right.good-camoflauge .hamster_camoflauge_run {
+  display: block;
+}
+
+.hamster_wrapper.turn-up.good-water_buckets .hamster_water_buckets_run_up, .hamster_wrapper.turn-down.good-water_buckets .hamster_water_buckets_run_up {
+  display: block;
+}
+.hamster_wrapper.turn-left.good-water_buckets .hamster_water_buckets_run, .hamster_wrapper.turn-right.good-water_buckets .hamster_water_buckets_run {
+  display: block;
+}
+
+.hamster_wrapper.turn-up.good-rocket_booster .hamster_rocket_booster_run_up, .hamster_wrapper.turn-down.good-rocket_booster .hamster_rocket_booster_run_up {
+  display: block;
+}
+.hamster_wrapper.turn-left.good-rocket_booster .hamster_rocket_booster_run, .hamster_wrapper.turn-right.good-rocket_booster .hamster_rocket_booster_run {
+  display: block;
+}
+
 .hamster_wrapper {
   position: absolute;
   transition: 0.3s;
@@ -50,22 +78,10 @@
 .hamster_wrapper.turn-left #hamster_run, .hamster_wrapper.turn-right #hamster_run {
   display: block;
 }
-.hamster_wrapper.turn-left.good-armor .hamster_armor_run, .hamster_wrapper.turn-right.good-armor .hamster_armor_run {
-  display: block;
-}
-.hamster_wrapper.turn-left.good-camoflauge .hamster_camoflauge_run, .hamster_wrapper.turn-right.good-camoflauge .hamster_camoflauge_run {
-  display: block;
-}
 .hamster_wrapper.turn-right .layer {
   transform: scale(-1, 1);
 }
 .hamster_wrapper.turn-up .hamster_run_up, .hamster_wrapper.turn-down .hamster_run_up {
-  display: block;
-}
-.hamster_wrapper.turn-up.good-armor .hamster_armor_run_up, .hamster_wrapper.turn-down.good-armor .hamster_armor_run_up {
-  display: block;
-}
-.hamster_wrapper.turn-up.good-camoflauge .hamster_camoflauge_run_up, .hamster_wrapper.turn-down.good-camoflauge .hamster_camoflauge_run_up {
   display: block;
 }
 .hamster_wrapper.turn-down .layer {

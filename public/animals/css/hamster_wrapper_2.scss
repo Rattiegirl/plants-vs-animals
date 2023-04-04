@@ -1,6 +1,30 @@
+@mixin good-mix($good-name) {
+  .hamster_wrapper {
+
+    &.turn-up,
+    &.turn-down {
+      &.good-#{$good-name} .hamster_#{$good-name}_run_up {
+        display: block;
+
+      }
+    }
+
+    &.turn-left,
+    &.turn-right {
+      &.good-#{$good-name} .hamster_#{$good-name}_run {
+        display: block;
+      }
+    }
+  }
+}
+@include good-mix("armor");
+@include good-mix("camoflauge");
+@include good-mix("water_buckets");
+@include good-mix("rocket_booster");
 .hamster_wrapper {
   position: absolute;
   transition: 0.3s;
+
   .layer {
     transform-origin: center;
     display: none;
@@ -11,15 +35,6 @@
     #hamster_run {
       display: block;
     }
-
-    &.good-armor .hamster_armor_run {
-      display: block;
-    }
-
-    &.good-camoflauge .hamster_camoflauge_run {
-      display: block;
-    }
-
   }
 
   &.turn-right {
@@ -31,14 +46,6 @@
   &.turn-up,
   &.turn-down {
     .hamster_run_up {
-      display: block;
-    }
-
-    &.good-armor .hamster_armor_run_up {
-      display: block;
-    }
-
-    &.good-camoflauge .hamster_camoflauge_run_up {
       display: block;
     }
   }
