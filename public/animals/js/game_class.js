@@ -12,7 +12,7 @@ class Game {
         this.seconds = seconds
         this.initButtons()
         this.needToEat = needToEat
-        this.seeds = 0
+        this.seeds = 5
         this.showSeeds()
     }
     addAnimal(animal) {

@@ -34,7 +34,7 @@ document.addEventListener("keydown", function (event) {
   if (event.key === "c") {
     hamster.chew();
     if (intersect(rose, hamster)) {
-      if (rose.getDataMode() === "attacking") {
+      if (rose.state === "attack") {
         if (hamster.checkGood("armor")>0) {
           hamster.removeGood("armor")
           eatingRose()

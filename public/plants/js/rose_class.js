@@ -5,6 +5,7 @@ class Rose {
         this.size = size;
         this.el = el;
         this.scene = scene;
+        this.type = "rose";
         this.state = "default"
         this.initRender()
         this.timeout1 = null
@@ -41,6 +42,13 @@ class Rose {
               max: 2,
               using: () => {
                 // роза может посадить росток яблони который выростает через полторы минуты и больше не боится воды
+              }
+            },
+            "camoflauge": {
+              count: 0,
+              max: 1,
+              using: () => {
+                // роза может скрыться на пару секунд
               }
             }
           }
@@ -123,15 +131,32 @@ class Rose {
             }, this.beforeAttackDelay)
         }, this.beforeDistractsDelay)
     }
-
-    useGood(good) {
-        if (good === "iron-thorns") {
-            this.ironThorns()
-        } else if (good === "rose-seed") {
-            this.roseSeed()
-        } else if (good === "apple-tree-seed") {
-            this.appleTreeSeed()
-        }
+    checkGood(good) {
+      return this.goodsDictionary[good].count
     }
-
+    useGood(good) {
+      if (!this.goodsDictionary[good]) {
+        alert(`Я не умею использовать ${good}`)
+        return
+      }
+      //this.el.classList.add(good)
+      this.goodsDictionary[good].using(this.goodsDictionary[good])
+      this.goodsDictionary[good].count += 1
+      this.updateClasses()
+    }
+    buttonPressed(key) {
+  
+      if (key === "c") {
+       alert("I need a cart");
+      }
+  
+      if (key === "d") {
+        this.distract();
+      }
+  
+      if (key === "a") {
+        this.attack();
+      }
+      this.updateClasses()
+    }
 }

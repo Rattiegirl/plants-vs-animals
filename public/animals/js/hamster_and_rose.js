@@ -13,8 +13,9 @@ const hamster = new Hamster(hamsterEl, game.scene);
 const bird = new Bird(birdEl, game.scene);
 game.addAnimal(hamster)
 game.addAnimal(bird)
-game.activeHero = hamster
+//game.activeHero = hamster
 const rose = new Rose(roseEl, game.scene, 10000, 7000);
+game.activeHero = rose
 game.startTicker()
 const scene = game.scene
 ///////todo: move these pesky lines
@@ -41,7 +42,7 @@ game.startTimer()
 
 const shopEl = document.querySelector('#shop')
 ////////////////////////////////////////Покупайте за низкую цену
-const shop = new Shop (shopEl, "animal", game)
+const shop = new Shop (shopEl, "plant", game)
 // const armoredBtn = document.querySelector("#shop .armor")
 // armoredBtn.onclick = function () {
 //     hamster.armor()

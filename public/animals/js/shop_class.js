@@ -12,6 +12,7 @@ const plantGoods = [
     { name: 'rose-seed', img: "rose_seeds.png", price: 4, enabledFor: ['rose'] },
     { name: 'hanging-vine', img: "hanging_vines.png", price: 4, enabledFor: ['apple-tree'] },
     { name: 'apple-tree-seed', img: "apple_tree_seeds.png", price: 5, enabledFor: ['rose'] },
+    {name: 'camoflauge', img: "camoflauge_suit.png", price: 1, enabledFor: ['rose'] },
 
 
 ]

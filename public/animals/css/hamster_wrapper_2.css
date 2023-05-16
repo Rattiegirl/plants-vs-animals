@@ -114,4 +114,7 @@
 }
 .hamster_wrapper.distracted.good-armor .hamster_armor_drop, .hamster_wrapper.dig.good-armor .hamster_armor_drop, .hamster_wrapper.chew.good-armor .hamster_armor_drop, .hamster_wrapper.sit.good-armor .hamster_armor_drop {
   display: block;
+}
+.hamster_wrapper.distracted.distracted.good-camoflauge .hamster_camoflauge_distracted, .hamster_wrapper.dig.distracted.good-camoflauge .hamster_camoflauge_distracted, .hamster_wrapper.chew.distracted.good-camoflauge .hamster_camoflauge_distracted, .hamster_wrapper.sit.distracted.good-camoflauge .hamster_camoflauge_distracted {
+  display: block;
 }/*# sourceMappingURL=hamster_wrapper_2.css.map */
