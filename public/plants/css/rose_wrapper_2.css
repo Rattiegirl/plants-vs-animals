@@ -1,0 +1,27 @@
+.rose_wrapper.default.good-camoflauge .rose_camoflauge_default {
+  display: block;
+}
+.rose_wrapper.distract.good-camoflauge .rose_camoflauge_distract {
+  display: block;
+}
+.rose_wrapper.attack.good-camoflauge .rose_camoflauge_attack {
+  display: block;
+}
+
+.rose_wrapper {
+  position: absolute;
+  transition: 0.3s;
+}
+.rose_wrapper .layer {
+  transform-origin: center;
+  display: none;
+}
+.rose_wrapper.default .rose_default {
+  display: block;
+}
+.rose_wrapper.distract .rose_distract {
+  display: block;
+}
+.rose_wrapper.attack .rose_attack {
+  display: block;
+}/*# sourceMappingURL=rose_wrapper_2.css.map */

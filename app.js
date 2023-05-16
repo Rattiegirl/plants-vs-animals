@@ -14,6 +14,9 @@ app.get("/", (req, res) => {
 app.get("/hamster", (req, res) => {
   res.render("examples/hamster_wrapper_2")
 })
+app.get("/rose", (req, res) => {
+  res.render("examples/rose_wrapper_2")
+})
 
 app.get("/game", (req, res) => {
   res.send("The New Game");

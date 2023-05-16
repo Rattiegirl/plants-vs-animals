@@ -7,6 +7,7 @@ class Hamster {
     this.isBusy = false
     this.scene = scene
     this.direction = "left"
+    this.state = "run"
     this.type = "hamster"
     this.goodsDictionary = {
       "armor": {
@@ -51,6 +52,13 @@ class Hamster {
           //когда Хомя копает, вёдра выливаются
         }
       },
+      "saddle": {
+        count: 0,
+        max: 1,
+        using: () => {
+
+        }
+      },
     }
     ////render
     this.el = el;
@@ -81,7 +89,11 @@ class Hamster {
   }
   updateClasses() {
     let classes = ["hamster_wrapper"]
-    classes.push(`turn-${this.direction}`)
+    if (this.state === "run") {
+      classes.push(`turn-${this.direction}`)
+    } else {
+      classes.push(this.state)
+    }
     const goodClasses = Object.keys(this.goodsDictionary).filter((good) => {
       if (this.goodsDictionary[good].count > 0) {
         return true
@@ -116,7 +128,7 @@ class Hamster {
   //
   //}
   sit() {
-    this.el.setAttribute("data-mode", "sitting");
+    this.state = "sit"
   }
 
   run() {
@@ -125,19 +137,21 @@ class Hamster {
     //   beforeRunCallback()
 
     // }
-    this.el.setAttribute("data-mode", "running")
+    this.state = "run"
   }
 
   chew() {
-    this.el.setAttribute("data-mode", "chewing")
+    this.state = "chew"
   }
 
   dig() {
-    this.el.setAttribute("data-mode", "digging")
+    this.state = "dig"
   }
 
   distracted() {
-    this.el.setAttribute("data-mode", "distracted")
+    this.state = "distracted"
+
+    //this.el.setAttribute("data-mode", "distracted")
   }
   //////logic
 
@@ -310,7 +324,7 @@ class Hamster {
     if (key === "l") {
       this.distracted();
     }
-
+    this.updateClasses()
   }
 
 }

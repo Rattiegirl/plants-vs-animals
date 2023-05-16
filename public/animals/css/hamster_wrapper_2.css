@@ -26,6 +26,13 @@
   display: block;
 }
 
+.hamster_wrapper.turn-up.good-saddle .hamster_saddle_run_up, .hamster_wrapper.turn-down.good-saddle .hamster_saddle_run_up {
+  display: block;
+}
+.hamster_wrapper.turn-left.good-saddle .hamster_saddle_run, .hamster_wrapper.turn-right.good-saddle .hamster_saddle_run {
+  display: block;
+}
+
 .hamster_wrapper {
   position: absolute;
   transition: 0.3s;
@@ -86,4 +93,25 @@
 }
 .hamster_wrapper.turn-down .layer {
   transform: scale(1, -1);
+}
+.hamster_wrapper.distracted .hamster_distracted {
+  display: block;
+}
+.hamster_wrapper.dig .hamster_dig {
+  display: block;
+}
+.hamster_wrapper.chew .hamster_chew {
+  display: block;
+}
+.hamster_wrapper.sit .hamster_sit {
+  display: block;
+}
+.hamster_wrapper.distracted.good-water_buckets .hamster_water_buckets_drop, .hamster_wrapper.dig.good-water_buckets .hamster_water_buckets_drop, .hamster_wrapper.chew.good-water_buckets .hamster_water_buckets_drop, .hamster_wrapper.sit.good-water_buckets .hamster_water_buckets_drop {
+  display: block;
+}
+.hamster_wrapper.distracted.good-rocket_booster .hamster_rocket_booster_drop, .hamster_wrapper.dig.good-rocket_booster .hamster_rocket_booster_drop, .hamster_wrapper.chew.good-rocket_booster .hamster_rocket_booster_drop, .hamster_wrapper.sit.good-rocket_booster .hamster_rocket_booster_drop {
+  display: block;
+}
+.hamster_wrapper.distracted.good-armor .hamster_armor_drop, .hamster_wrapper.dig.good-armor .hamster_armor_drop, .hamster_wrapper.chew.good-armor .hamster_armor_drop, .hamster_wrapper.sit.good-armor .hamster_armor_drop {
+  display: block;
 }/*# sourceMappingURL=hamster_wrapper_2.css.map */

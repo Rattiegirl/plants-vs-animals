@@ -5,6 +5,7 @@ class Rose {
         this.size = size;
         this.el = el;
         this.scene = scene;
+        this.state = "default"
         this.initRender()
         this.timeout1 = null
         this.timeout2 = null
@@ -43,18 +44,32 @@ class Rose {
               }
             }
           }
+          this.updateClasses()
     }
 
     ///render
     initRender() {
         this.el.style.width = this.size + "px"
         this.el.style.height = this.size + "px"
+       
     }
 
     render() {
         this.el.style.left = this.x + "px"
         this.el.style.top = this.y + "px"
     }
+    updateClasses() {
+        let classes = ["rose_wrapper"]
+        classes.push(this.state)
+        
+        const goodClasses = Object.keys(this.goodsDictionary).filter((good) => {
+          if (this.goodsDictionary[good].count > 0) {
+            return true
+          }
+          return false
+        }).map(good => `good-${good}`)
+        this.el.setAttribute("class", [...classes, ...goodClasses].join(" "))
+      }
 
     ironThorns() {
         ///Роза одевает, Хомя не может сгрызть без защиты, да и то просто защита у Хоми и розы ломается
@@ -70,14 +85,20 @@ class Rose {
     }
 
     wait() {
-        this.el.setAttribute("data-mode", "waiting");
+        // this.el.setAttribute("data-mode", "waiting");
+        this.state = "default"
+        this.updateClasses()
     }
 
     distract() {
-        this.el.setAttribute("data-mode", "distracting");
+        // this.el.setAttribute("data-mode", "distracting");
+        this.state = "distract"
+        this.updateClasses()
     }
     attack() {
-        this.el.setAttribute("data-mode", "attacking");
+        // this.el.setAttribute("data-mode", "attacking");
+        this.state = "attack"
+        this.updateClasses()
     }
     getDataMode() {
         return this.el.getAttribute("data-mode")

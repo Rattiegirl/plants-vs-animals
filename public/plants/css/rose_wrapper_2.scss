@@ -1,0 +1,59 @@
+@mixin good-mix($good-name) {
+    .rose_wrapper {
+
+        &.default {
+            &.good-#{$good-name} .rose_#{$good-name}_default {
+                display: block;
+
+            }
+        }
+
+        &.distract {
+            &.good-#{$good-name} .rose_#{$good-name}_distract {
+                display: block;
+
+            }
+        }
+
+        &.attack {
+            &.good-#{$good-name} .rose_#{$good-name}_attack {
+                display: block;
+
+            }
+        }
+
+    }
+}
+
+@include good-mix("camoflauge");
+
+.rose_wrapper {
+    position: absolute;
+    transition: 0.3s;
+
+    .layer {
+        transform-origin: center;
+        display: none;
+    }
+
+    &.default
+     {
+        .rose_default {
+            display: block;
+        }
+    }
+    &.distract
+     {
+        .rose_distract {
+            display: block;
+        }
+    }
+    &.attack
+     {
+        .rose_attack {
+            display: block;
+        }
+    }
+
+   
+}

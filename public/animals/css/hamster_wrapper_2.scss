@@ -21,6 +21,7 @@
 @include good-mix("camoflauge");
 @include good-mix("water_buckets");
 @include good-mix("rocket_booster");
+@include good-mix("saddle");
 .hamster_wrapper {
   position: absolute;
   transition: 0.3s;
@@ -57,6 +58,45 @@
     }
   }
 
+  &.distracted {
+    .hamster_distracted{
+      display:block;
+    }
+  }
+
+  &.dig {
+    .hamster_dig{
+      display:block;
+    }
+  }
+
+  &.chew {
+    .hamster_chew{
+      display:block;
+    }
+  }
+  &.sit {
+    .hamster_sit{
+      display:block;
+    }
+  }
+&.distracted,&.dig, &.chew, &.sit{
+  &.good-water_buckets{
+    .hamster_water_buckets_drop{
+      display:block;
+    }
+  }
+  &.good-rocket_booster{
+    .hamster_rocket_booster_drop{
+      display:block;
+    }
+  }
+  &.good-armor{
+    .hamster_armor_drop{
+      display:block;
+    }
+  }
+} 
 
 
 
