@@ -3,7 +3,7 @@ const API = 'http://84.38.188.9:4500';
 const socket = io(`${API}`);
 
 const handleAction = (data) => {
-  console.log({data})
+  console.log({ data })
   getAction(data);
 }
 
@@ -19,6 +19,20 @@ const getAction = (data) => {
     const animal = game.animals[name];
     animal[command](params);
   }
+  console.log(1)
+  if (type === "game"){
+    console.log(2)
+    if (name === "createAnimal"){
+      console.log(3)
+      const {type, id, l, w} = params
+      if (type === "hamster"){
+        console.log(4)
+        const animal = getHamster({ name: `${type}-${id}`, l: l, w: w });
+        game.addAnimal(animal)
+      }
+     
+    }
+  }
 }
 
 const getGame = () => {
@@ -30,18 +44,18 @@ const getGame = () => {
     const y = e.clientY;
     if (e.target.getAttribute("id") !== "game") return;
 
-    
+
     if (activeAnimal) {
       // activeAnimal.goTo({x, y});
       sendAction({
         type: "animal",
         name: activeAnimal.name,
         command: "goTo",
-        params: {x, y}
+        params: { x, y }
       });
       return;
     }
-    console.log({x, y});
+    console.log({ x, y });
   })
 
   let activeAnimal = null;
@@ -61,26 +75,26 @@ const getGame = () => {
     animal.render();
     animal.el.addEventListener('click', () => {
       setActiveAnimal(animal);
-      const randomColor = "#"+Math.floor(Math.random()*(16**3)).toString(16)
+      const randomColor = "#" + Math.floor(Math.random() * (16 ** 3)).toString(16)
       sendAction({
         type: "animal",
         name: animal.name,
         command: "changeColor",
-        params: {color: randomColor}
+        params: { color: randomColor }
       });
-      const randomSize = Math.floor(Math.random()*290)+10
+      const randomSize = Math.floor(Math.random() * 290) + 10
       sendAction({
-        type:"animal",
+        type: "animal",
         name: animal.name,
         command: "changeSize",
-        params: {size: randomSize}
+        params: { size: randomSize }
 
 
       })
     });
   }
 
-  return  {
+  return {
     el,
     addAnimal,
     animals,
@@ -103,32 +117,32 @@ const getHamster = (params = {}) => {
   let t = params.t || Math.floor(h / 2);
   let blockTime = 0;
   let isBlocked = false;
-  let bgColor = "#e4b81b"; 
+  let bgColor = "#e4b81b";
 
-  const changeColor = ({color})=>{
+  const changeColor = ({ color }) => {
     bgColor = color;
     el.style.backgroundColor = color
   }
 
-  const changeSize= ({size})=>{
+  const changeSize = ({ size }) => {
     w = size;
     h = Math.floor(w * 0.7);
     el.style.width = `${w}px`;
     el.style.height = `${h}px`;
   }
 
-  const goTo = ({x, y}) => {
+  const goTo = ({ x, y }) => {
     if (isBlocked) return;
     isBlocked = true;
     el.classList.add("is-blocked");
-    
-    destination = Math.sqrt((x-l)**2 + (y-t)**2);
+
+    destination = Math.sqrt((x - l) ** 2 + (y - t) ** 2);
     blockTime = Math.floor(destination * 1000 / speed);
-    console.log({destination, blockTime})
+    console.log({ destination, blockTime })
     l = x;
     t = y;
     render();
-    
+
     setTimeout(() => {
       isBlocked = false;
       el.classList.remove("is-blocked");
@@ -143,11 +157,11 @@ const getHamster = (params = {}) => {
     el.style.height = `${h}px`;
   }
   create();
-  
+
   const render = () => {
     el.style.left = `${l}px`;
     el.style.top = `${t}px`;
-    
+
     el.style.transition = `all ${blockTime}ms linear`
   }
 
@@ -163,9 +177,25 @@ const getHamster = (params = {}) => {
   }
 }
 
-const hamster1 = getHamster({name: "hamster-1"});
+const hamster1 = getHamster({ name: "hamster-1" });
 game.addAnimal(hamster1)
 
-const hamster2 = getHamster({name: "hamster-2", l: 200, w: 70 });
+const hamster2 = getHamster({ name: "hamster-2", l: 200, w: 70 });
 game.addAnimal(hamster2)
 
+const addAnimalButton = document.querySelector("#add-animal")
+
+addAnimalButton.addEventListener("click", () => {
+ 
+  sendAction({
+    type: "game",
+    name: "createAnimal",
+    // command: "goTo",
+    params: { 
+      type: "hamster",
+      id: Date.now(),
+      l: 100,
+      w: 333
+    }
+  });
+})
