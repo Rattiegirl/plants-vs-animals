@@ -15,7 +15,7 @@ const sendAction = (data) => {
 
 const getAction = (data) => {
   const { type, name, command, params } = data;
- 
+
   if (type === "animal") {
     const animal = game.animals[name];
     animal[command](params);
@@ -24,28 +24,28 @@ const getAction = (data) => {
     const plant = game.plants[name];
     plant[command](params);
   }
- 
-  if (type === "game"){
-   
-    if (name === "createAnimal"){
-     
-      const {type, id, l, w} = params
-      if (type === "hamster"){
-     
-        const animal = getHamster({ name: `${type}-${id}`, l: l, w: w });
+
+  if (type === "game") {
+
+    if (name === "createAnimal") {
+
+      const { type, id} = params
+      if (type === "hamster") {
+
+        const animal = getHamster({ name: `${type}-${id}`});
         game.addAnimal(animal)
       }
-     
+
     }
-    if (name === "createPlant"){
-     
-      const {type, id, l, w} = params
-      if (type === "rose"){
-     
-        const plant = getRose({ name: `${type}-${id}`, l: l, w: w });
+    if (name === "createPlant") {
+
+      const { type, id} = params
+      if (type === "rose") {
+
+        const plant = getRose({ name: `${type}-${id}`});
         game.addPlant(plant)
       }
-     
+
     }
   }
 }
@@ -54,7 +54,11 @@ const getGame = () => {
   const el = document.querySelector("#game");
   const animals = {}
   const plants = {}
-
+  setInterval(() => {
+    for (let animal of Object.values(animals)) {
+      animal.render()
+    }
+  }, 100)
   el.addEventListener('click', (e) => {
     const x = e.clientX;
     const y = e.clientY;
@@ -149,13 +153,13 @@ const getGame = () => {
         name: plant.name,
         command: "changeSize",
         params: { size: randomSize }
-  
-  
+
+
       })
     });
-   
+
   }
-  
+
 
   return {
     el,
@@ -178,20 +182,20 @@ const getHamster = (params = {}) => {
   el.id = ""
   el.classList.remove("hidden")
   document.querySelector("#scene").appendChild(el)
-  const hamster = new Hamster(el, {width: 1200, height: 700})
+  const hamster = new Hamster(el, { width: 1200, height: 700 })
   const name = params.name || "hamster";
 
-  let w = params.w || 100;
-  let h = Math.floor(w * 0.7);
+  // let w = params.w || 100;
+  // let h = Math.floor(w * 0.7);
 
-  let speed = params.speed || 1400; // 100px per second
-  let destination = 0;
+  // let speed = params.speed || 1400; // 100px per second
+  // let destination = 0;
 
-  let l = params.l || Math.floor(w / 2);
-  let t = params.t || Math.floor(h / 2);
-  let blockTime = 0;
-  let isBlocked = false;
-  let bgColor = "#e4b81b";
+  // let l = params.l || Math.floor(w / 2);
+  // let t = params.t || Math.floor(h / 2);
+  // let blockTime = 0;
+  // let isBlocked = false;
+  // let bgColor = "#e4b81b";
 
   const changeColor = ({ color }) => {
     // bgColor = color;
@@ -255,68 +259,77 @@ const getHamster = (params = {}) => {
 }
 
 const getRose = (params = {}) => {
-  let el = null;
-  const name = params.name || "rose";
+  const firstRose = document.querySelector("#first-rose")
+  let el = firstRose.cloneNode(true);
+  el.id = ""
+  el.classList.remove("hidden")
+  document.querySelector("#scene").appendChild(el)
+  const rose = new Rose(el, { width: 1200, height: 700 })
+  
+  // const name = params.name || "rose";
 
-  let w = params.w || 100;
-  let h = Math.floor(w * 0.7);
+  // let w = params.w || 100;
+  // let h = Math.floor(w * 0.7);
 
-  let speed = params.speed || 1400; // 100px per second
-  let destination = 0;
+  // let speed = params.speed || 1400; // 100px per second
+  // let destination = 0;
 
-  let l = params.l || Math.floor(w / 2);
-  let t = params.t || Math.floor(h / 2);
-  let blockTime = 0;
-  let isBlocked = false;
-  let bgColor = "#e4b81b";
- 
+  // let l = params.l || Math.floor(w / 2);
+  // let t = params.t || Math.floor(h / 2);
+  // let blockTime = 0;
+  // let isBlocked = false;
+  // let bgColor = "#e4b81b";
+
 
   const changeColor = ({ color }) => {
-    bgColor = color;
-    el.style.backgroundColor = color
+    // bgColor = color;
+    // el.style.backgroundColor = color
   }
 
   const changeSize = ({ size }) => {
-    w = size;
-    h = Math.floor(w * 0.7);
-    el.style.width = `${w}px`;
-    el.style.height = `${h}px`;
+    // w = size;
+    // h = Math.floor(w * 0.7);
+    // el.style.width = `${w}px`;
+    // el.style.height = `${h}px`;
   }
 
   const goTo = ({ x, y }) => {
-    if (isBlocked) return;
-    isBlocked = true;
-    el.classList.add("is-blocked");
+    // if (isBlocked) return;
+    // isBlocked = true;
+    // el.classList.add("is-blocked");
 
-    destination = Math.sqrt((x - l) ** 2 + (y - t) ** 2);
-    blockTime = Math.floor(destination * 1000 / speed);
-    console.log({ destination, blockTime })
-    l = x;
-    t = y;
-    render();
+    // destination = Math.sqrt((x - l) ** 2 + (y - t) ** 2);
+    // blockTime = Math.floor(destination * 1000 / speed);
+    // console.log({ destination, blockTime })
+    // l = x;
+    // t = y;
+    // render();
 
-    setTimeout(() => {
-      isBlocked = false;
-      el.classList.remove("is-blocked");
-    }, blockTime)
+    // setTimeout(() => {
+    //   isBlocked = false;
+    //   el.classList.remove("is-blocked");
+    // }, blockTime)
+  }
+  const plant = ({ x, y }) => {
+  rose.plant(x, y)
   }
 
   const create = () => {
-    el = document.createElement("div");
-    el.classList.add("hamster");
-    el.classList.add("rose");
-    // el.innerHTML = ``
-    el.style.width = `${w}px`;
-    el.style.height = `${h}px`;
+    // el = document.createElement("div");
+    // el.classList.add("hamster");
+    // el.classList.add("rose");
+    // // el.innerHTML = ``
+    // el.style.width = `${w}px`;
+    // el.style.height = `${h}px`;
   }
   create();
 
   const render = () => {
-    el.style.left = `${l}px`;
-    el.style.top = `${t}px`;
+    // el.style.left = `${l}px`;
+    // el.style.top = `${t}px`;
 
-    el.style.transition = `all ${blockTime}ms linear`
-    el.style.borderRadius = "50%"
+    // el.style.transition = `all ${blockTime}ms linear`
+    // el.style.borderRadius = "50%"
   }
 
   return {
@@ -328,51 +341,51 @@ const getRose = (params = {}) => {
 
     changeColor,
     changeSize,
+
+    plant,
   }
 }
 
 const hamster1 = getHamster({ name: "hamster-1" });
 game.addAnimal(hamster1)
 
-const hamster2 = getHamster({ name: "hamster-2", l: 200, w: 70 });
+const hamster2 = getHamster({ name: "hamster-2" });
 game.addAnimal(hamster2)
 
-const rose1 = getRose({ name: "rose-1", l: 200, w: 200 });
+const rose1 = getRose({ name: "rose-1" });
 game.addPlant(rose1)
 
-const rose2 = getRose({ name: "rose-2", l: 200, w: 200 });
+const rose2 = getRose({ name: "rose-2" });
 game.addPlant(rose2)
 
 const addAnimalButton = document.querySelector("#add-animal")
 
 addAnimalButton.addEventListener("click", () => {
- 
+
   sendAction({
     type: "game",
     name: "createAnimal",
     // command: "goTo",
-    params: { 
+    params: {
       type: "hamster",
       id: Date.now(),
-      l: 100,
-      w: 333
+      
     }
   });
 })
 const addPlantButton = document.querySelector("#add-plant")
 
 addPlantButton.addEventListener("click", () => {
- 
+
   sendAction({
     type: "game",
     name: "createPlant",
     // command: "goTo",
-    params: { 
+    params: {
       type: "rose",
       id: Date.now(),
-      l: 100,
-      w: 100,
       
+
     }
   });
 })
