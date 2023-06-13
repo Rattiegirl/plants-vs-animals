@@ -14,7 +14,9 @@ body {
     height: 100vh;
     overflow: hidden;
   }
-  
+
+
+
   .hamster {
     position: absolute;
     background-color: #E4B81B;

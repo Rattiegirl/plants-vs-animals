@@ -1,5 +1,5 @@
 class Rose {
-    constructor(el, scene, beforeDistractsDelay, beforeAttackDelay, x = 0, y = 0, size = 85) {
+    constructor(el, scene, beforeDistractsDelay = 3500, beforeAttackDelay = 2000, x = 0, y = 0, size = 85) {
         this.x = x;
         this.y = y;
         this.size = size;

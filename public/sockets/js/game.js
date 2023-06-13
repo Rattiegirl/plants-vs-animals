@@ -39,11 +39,12 @@ const getAction = (data) => {
     }
     if (name === "createPlant") {
 
-      const { type, id} = params
+      const {type, id, x, y} = params
       if (type === "rose") {
 
         const plant = getRose({ name: `${type}-${id}`});
         game.addPlant(plant)
+        plant.plant({x,y})
       }
 
     }
@@ -265,7 +266,8 @@ const getRose = (params = {}) => {
   el.classList.remove("hidden")
   document.querySelector("#scene").appendChild(el)
   const rose = new Rose(el, { width: 1200, height: 700 })
-  
+  const name = params.name || "rose";
+
   // const name = params.name || "rose";
 
   // let w = params.w || 100;
@@ -310,7 +312,9 @@ const getRose = (params = {}) => {
     //   el.classList.remove("is-blocked");
     // }, blockTime)
   }
-  const plant = ({ x, y }) => {
+  const plant = (params) => {
+    
+    const {x,y} = params
   rose.plant(x, y)
   }
 
@@ -384,7 +388,8 @@ addPlantButton.addEventListener("click", () => {
     params: {
       type: "rose",
       id: Date.now(),
-      
+      x: Math.floor(Math.random()*1300),
+      y: Math.floor(Math.random()*700),
 
     }
   });
