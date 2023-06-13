@@ -157,7 +157,6 @@ class Hamster {
 
   goTo(destinationX, destinationY) {
     if (this.isBusy) return
-    debugger
     this.isBusy = true
     const deltaX = destinationX - this.x
     const deltaY = destinationY - this.y

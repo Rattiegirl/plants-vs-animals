@@ -1,7 +1,11 @@
 const API = 'http://84.38.188.9:4500';
 
 const socket = io(`${API}`);
-
+const team = confirm("Соизволите ли вы играть за Хомяков?")?"animal":"plant"
+const scene = {
+  width : 1100,
+  height: 650,
+}
 const handleAction = (data) => {
   console.log({ data })
   getAction(data);
@@ -183,7 +187,7 @@ const getHamster = (params = {}) => {
   el.id = ""
   el.classList.remove("hidden")
   document.querySelector("#scene").appendChild(el)
-  const hamster = new Hamster(el, { width: 1200, height: 700 })
+  const hamster = new Hamster(el, scene)
   const name = params.name || "hamster";
 
   // let w = params.w || 100;
@@ -265,7 +269,7 @@ const getRose = (params = {}) => {
   el.id = ""
   el.classList.remove("hidden")
   document.querySelector("#scene").appendChild(el)
-  const rose = new Rose(el, { width: 1200, height: 700 })
+  const rose = new Rose(el, scene)
   const name = params.name || "rose";
 
   // const name = params.name || "rose";
@@ -365,7 +369,9 @@ game.addPlant(rose2)
 const addAnimalButton = document.querySelector("#add-animal")
 
 addAnimalButton.addEventListener("click", () => {
-
+ if (team === "plant"){
+  return false 
+ }
   sendAction({
     type: "game",
     name: "createAnimal",
@@ -380,7 +386,9 @@ addAnimalButton.addEventListener("click", () => {
 const addPlantButton = document.querySelector("#add-plant")
 
 addPlantButton.addEventListener("click", () => {
-
+ if (team === "animal"){
+  return false 
+ }
   sendAction({
     type: "game",
     name: "createPlant",
@@ -388,8 +396,8 @@ addPlantButton.addEventListener("click", () => {
     params: {
       type: "rose",
       id: Date.now(),
-      x: Math.floor(Math.random()*1300),
-      y: Math.floor(Math.random()*700),
+      x: Math.floor(Math.random()*scene.width),
+      y: Math.floor(Math.random()*scene.height),
 
     }
   });
