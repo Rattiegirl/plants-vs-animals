@@ -1,17 +1,13 @@
 const API = 'http://84.38.188.9:4500';
 
+const shopEl = document.querySelector("#shop")
+
 const socket = io(`${API}`);
 const team = confirm("Соизволите ли вы играть за Хомяков?")?"animal":"plant"
 const scene = {
   width : 1100,
   height: 650,
 }
-const handleAction = (data) => {
-  console.log({ data })
-  getAction(data);
-}
-
-socket.on("game", handleAction);
 
 const sendAction = (data) => {
   socket.emit("game", data);
@@ -55,7 +51,10 @@ const getAction = (data) => {
   }
 }
 
+socket.on("game", getAction);
+
 const getGame = () => {
+  //todo: use Game
   const el = document.querySelector("#game");
   const animals = {}
   const plants = {}
@@ -85,15 +84,16 @@ const getGame = () => {
       sendAction({
         type: "plant",
         name: activePlant.name,
-        command: "goTo",
+        command: "plant",
         params: { x, y }
       });
       return;
     }
-    console.log({ x, y });
+   
   })
 
   let activeAnimal = null;
+  let activePlant = null;
 
   const setActiveAnimal = (animal) => {
     activeAnimal = animal;
@@ -120,51 +120,17 @@ const getGame = () => {
     animal.render();
     animal.el.addEventListener('click', () => {
       setActiveAnimal(animal);
-      const randomColor = "#" + Math.floor(Math.random() * (16 ** 3)).toString(16)
-      sendAction({
-        type: "animal",
-        name: animal.name,
-        command: "changeColor",
-        params: { color: randomColor }
-      });
-      const randomSize = Math.floor(Math.random() * 290) + 10
-      sendAction({
-        type: "animal",
-        name: animal.name,
-        command: "changeSize",
-        params: { size: randomSize }
-
-
-      })
     });
   }
 
   const addPlant = (plant) => {
     plants[plant.name] = plant;
     el.append(plant.el);
-    plant.render();
+    //plant.render();
     plant.el.addEventListener('click', () => {
       setActivePlant(plant);
-      const randomColor = "#" + Math.floor(Math.random() * (16 ** 3)).toString(16)
-      sendAction({
-        type: "plant",
-        name: plant.name,
-        command: "changeColor",
-        params: { color: randomColor }
-      });
-      const randomSize = Math.floor(Math.random() * 290) + 10
-      sendAction({
-        type: "plant",
-        name: plant.name,
-        command: "changeSize",
-        params: { size: randomSize }
-
-
-      })
     });
-
   }
-
 
   return {
     el,
@@ -175,11 +141,9 @@ const getGame = () => {
   }
 }
 
-
-
-
-
 const game = getGame();
+
+const shop = new Shop (shopEl, team, game)
 
 const getHamster = (params = {}) => {
   const firstHamster = document.querySelector("#first-hamster")
@@ -190,65 +154,12 @@ const getHamster = (params = {}) => {
   const hamster = new Hamster(el, scene)
   const name = params.name || "hamster";
 
-  // let w = params.w || 100;
-  // let h = Math.floor(w * 0.7);
-
-  // let speed = params.speed || 1400; // 100px per second
-  // let destination = 0;
-
-  // let l = params.l || Math.floor(w / 2);
-  // let t = params.t || Math.floor(h / 2);
-  // let blockTime = 0;
-  // let isBlocked = false;
-  // let bgColor = "#e4b81b";
-
-  const changeColor = ({ color }) => {
-    // bgColor = color;
-    // el.style.backgroundColor = color
-  }
-
-  const changeSize = ({ size }) => {
-    // w = size;
-    // h = Math.floor(w * 0.7);
-    // el.style.width = `${w}px`;
-    // el.style.height = `${h}px`;
-  }
-
   const goTo = ({ x, y }) => {
-    hamster.goTo(x, y)
-    // if (isBlocked) return;
-    // isBlocked = true;
-    // el.classList.add("is-blocked");
-
-    // destination = Math.sqrt((x - l) ** 2 + (y - t) ** 2);
-    // blockTime = Math.floor(destination * 1000 / speed);
-    // console.log({ destination, blockTime })
-    // l = x;
-    // t = y;
-    // render();
-
-    // setTimeout(() => {
-    //   isBlocked = false;
-    //   el.classList.remove("is-blocked");
-    // }, blockTime)
+    hamster.goTo(x, y)   
   }
-
-  // const create = () => {
-  //   el = document.createElement("div");
-  //   el.classList.add("hamster");
-  //   el.classList.add("rose");
-  //   // el.innerHTML = ``
-  //   el.style.width = `${w}px`;
-  //   el.style.height = `${h}px`;
-  // }
-  // create();
 
   const render = () => {
     hamster.render()
-    // el.style.left = `${l}px`;
-    // el.style.top = `${t}px`;
-
-    // el.style.transition = `all ${blockTime}ms linear`
   }
 
   return {
@@ -258,8 +169,6 @@ const getHamster = (params = {}) => {
     goTo,
     render,
 
-    changeColor,
-    changeSize,
   }
 }
 
@@ -272,99 +181,31 @@ const getRose = (params = {}) => {
   const rose = new Rose(el, scene)
   const name = params.name || "rose";
 
-  // const name = params.name || "rose";
-
-  // let w = params.w || 100;
-  // let h = Math.floor(w * 0.7);
-
-  // let speed = params.speed || 1400; // 100px per second
-  // let destination = 0;
-
-  // let l = params.l || Math.floor(w / 2);
-  // let t = params.t || Math.floor(h / 2);
-  // let blockTime = 0;
-  // let isBlocked = false;
-  // let bgColor = "#e4b81b";
-
-
-  const changeColor = ({ color }) => {
-    // bgColor = color;
-    // el.style.backgroundColor = color
-  }
-
-  const changeSize = ({ size }) => {
-    // w = size;
-    // h = Math.floor(w * 0.7);
-    // el.style.width = `${w}px`;
-    // el.style.height = `${h}px`;
-  }
-
-  const goTo = ({ x, y }) => {
-    // if (isBlocked) return;
-    // isBlocked = true;
-    // el.classList.add("is-blocked");
-
-    // destination = Math.sqrt((x - l) ** 2 + (y - t) ** 2);
-    // blockTime = Math.floor(destination * 1000 / speed);
-    // console.log({ destination, blockTime })
-    // l = x;
-    // t = y;
-    // render();
-
-    // setTimeout(() => {
-    //   isBlocked = false;
-    //   el.classList.remove("is-blocked");
-    // }, blockTime)
-  }
   const plant = (params) => {
     
     const {x,y} = params
   rose.plant(x, y)
   }
 
-  const create = () => {
-    // el = document.createElement("div");
-    // el.classList.add("hamster");
-    // el.classList.add("rose");
-    // // el.innerHTML = ``
-    // el.style.width = `${w}px`;
-    // el.style.height = `${h}px`;
-  }
-  create();
-
-  const render = () => {
-    // el.style.left = `${l}px`;
-    // el.style.top = `${t}px`;
-
-    // el.style.transition = `all ${blockTime}ms linear`
-    // el.style.borderRadius = "50%"
-  }
-
   return {
     el,
     name,
-
-    goTo,
-    render,
-
-    changeColor,
-    changeSize,
 
     plant,
   }
 }
 
-const hamster1 = getHamster({ name: "hamster-1" });
-game.addAnimal(hamster1)
+// const hamster1 = getHamster({ name: "hamster-1" });
+// game.addAnimal(hamster1)
 
-const hamster2 = getHamster({ name: "hamster-2" });
-game.addAnimal(hamster2)
+// const hamster2 = getHamster({ name: "hamster-2" });
+// game.addAnimal(hamster2)
 
-const rose1 = getRose({ name: "rose-1" });
-game.addPlant(rose1)
+// const rose1 = getRose({ name: "rose-1" });
+// game.addPlant(rose1)
 
-const rose2 = getRose({ name: "rose-2" });
-game.addPlant(rose2)
+// const rose2 = getRose({ name: "rose-2" });
+// game.addPlant(rose2)
 
 const addAnimalButton = document.querySelector("#add-animal")
 
@@ -402,3 +243,97 @@ addPlantButton.addEventListener("click", () => {
     }
   });
 })
+
+//old code:
+
+//in const goTo:
+
+    // if (isBlocked) return;
+    // isBlocked = true;
+    // el.classList.add("is-blocked");
+
+    // destination = Math.sqrt((x - l) ** 2 + (y - t) ** 2);
+    // blockTime = Math.floor(destination * 1000 / speed);
+    // console.log({ destination, blockTime })
+    // l = x;
+    // t = y;
+    // render();
+
+    // setTimeout(() => {
+    //   isBlocked = false;
+    //   el.classList.remove("is-blocked");
+    // }, blockTime)
+
+//in const render:
+ // el.style.left = `${l}px`;
+    // el.style.top = `${t}px`;
+
+    // el.style.transition = `all ${blockTime}ms linear`
+    // el.style.borderRadius = "50%"
+
+  
+
+//in const create:
+ // el = document.createElement("div");
+    // el.classList.add("hamster");
+    // el.classList.add("rose");
+    // // el.innerHTML = ``
+    // el.style.width = `${w}px`;
+    // el.style.height = `${h}px`;
+
+//in const getRose:
+
+  // const name = params.name || "rose";
+
+  // let w = params.w || 100;
+  // let h = Math.floor(w * 0.7);
+
+  // let speed = params.speed || 1400; // 100px per second
+  // let destination = 0;
+
+  // let l = params.l || Math.floor(w / 2);
+  // let t = params.t || Math.floor(h / 2);
+  // let blockTime = 0;
+  // let isBlocked = false;
+  // let bgColor = "#e4b81b";
+
+//in const goTo:
+ // if (isBlocked) return;
+    // isBlocked = true;
+    // el.classList.add("is-blocked");
+
+    // destination = Math.sqrt((x - l) ** 2 + (y - t) ** 2);
+    // blockTime = Math.floor(destination * 1000 / speed);
+    // console.log({ destination, blockTime })
+    // l = x;
+    // t = y;
+    // render();
+
+    // setTimeout(() => {
+    //   isBlocked = false;
+    //   el.classList.remove("is-blocked");
+    // }, blockTime)
+
+//const create commented:
+  // const create = () => {
+  //   el = document.createElement("div");
+  //   el.classList.add("hamster");
+  //   el.classList.add("rose");
+  //   // el.innerHTML = ``
+  //   el.style.width = `${w}px`;
+  //   el.style.height = `${h}px`;
+  // }
+  // create();
+
+//in const getHamster:
+ // let w = params.w || 100;
+  // let h = Math.floor(w * 0.7);
+
+  // let speed = params.speed || 1400; // 100px per second
+  // let destination = 0;
+
+  // let l = params.l || Math.floor(w / 2);
+  // let t = params.t || Math.floor(h / 2);
+  // let blockTime = 0;
+  // let isBlocked = false;
+  // let bgColor = "#e4b81b";

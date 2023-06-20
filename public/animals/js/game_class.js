@@ -1,5 +1,5 @@
 class Game {
-    constructor(el, seconds, needToEat) {
+    constructor(el, seconds = 10000, needToEat = 100) {
         this.el = el
         this.scene = {
             paused: true,
