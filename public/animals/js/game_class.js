@@ -1,7 +1,7 @@
 class Game {
-    constructor(el, seconds = 10000, needToEat = 100) {
+    constructor(el, seconds = 10000, needToEat = 100, scene) {
         this.el = el
-        this.scene = {
+        this.scene = scene || {
             paused: true,
             width: 1100,
             height: 650,
@@ -20,7 +20,7 @@ class Game {
     }
     renderAnimals() {
         for (let animal of this.animals) {
-            animal.render()
+            animal.render() 
         }
     }
     startTicker() {
@@ -37,9 +37,9 @@ class Game {
             () => {
                 if (this.scene.paused) return
                 this.seconds = this.seconds - 1
-                const minutes = (Math.floor(this.seconds/60) + "").padStart(2, "0")
-                const seconds = (Math.floor(this.seconds%60) + "").padStart(2, "0")
-                this.timerEl.innerText = `${minutes}:${seconds}` 
+                const minutes = (Math.floor(this.seconds / 60) + "").padStart(2, "0")
+                const seconds = (Math.floor(this.seconds % 60) + "").padStart(2, "0")
+                this.timerEl.innerText = `${minutes}:${seconds}`
                 if (this.seconds < 1) {
                     this.seconds = 0
                     clearInterval(intervalId)
@@ -74,26 +74,28 @@ class Game {
         const winnerPlant = document.querySelector(".winner-plant")
         const restartGameBtn = document.querySelector(".restart-game-btn")
 
-        this.playPauseBtn.onclick =()=>{
-            //// alert("You started the game!")
-            if (
-                this.scene.paused === true
-            ) {
-                this.play()
-            } else {
-                this.pause()
+        if (this.playPauseBtn) {
+            this.playPauseBtn.onclick = () => {
+                //// alert("You started the game!")
+                if (
+                    this.scene.paused === true
+                ) {
+                    this.play()
+                } else {
+                    this.pause()
+                }
+
             }
-
-
         }
-        startGameBtn.onclick = ()=> {
-            overlay.classList.add("hidden")
-            setTimeout(()=> {
-                this.play()
-                overlay.style.display = "none"
-                startGameModal.classList.add("hidden")
-            }, 300)
-
+        if (startGameBtn) {
+            startGameBtn.onclick = () => {
+                overlay.classList.add("hidden")
+                setTimeout(() => {
+                    this.play()
+                    overlay.style.display = "none"
+                    startGameModal.classList.add("hidden")
+                }, 300)
+            }
         }
         this.timesUp = () => {
             this.pause()
@@ -116,9 +118,9 @@ class Game {
     showSeeds() {
         this.seedsEl.innerHTML = ""
         for (let i = 0; i < this.seeds; i += 1) {
-          const imgEl = document.createElement("img")
-          imgEl.setAttribute("src", "../img/sunflower_seed.png")
-          this.seedsEl.append(imgEl)
+            const imgEl = document.createElement("img")
+            imgEl.setAttribute("src", "../img/sunflower_seed.png")
+            this.seedsEl.append(imgEl)
         }
     }
 

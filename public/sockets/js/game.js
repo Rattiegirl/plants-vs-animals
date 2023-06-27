@@ -1,12 +1,14 @@
 const API = 'http://84.38.188.9:4500';
 
+const gameEl = document.querySelector("#game")
 const shopEl = document.querySelector("#shop")
 
 const socket = io(`${API}`);
 const team = confirm("Соизволите ли вы играть за Хомяков?")?"animal":"plant"
 const scene = {
-  width : 1100,
-  height: 650,
+  width : 2500,
+  height: 800,
+  paused:false
 }
 
 const sendAction = (data) => {
@@ -56,13 +58,15 @@ socket.on("game", getAction);
 const getGame = () => {
   //todo: use Game
   const el = document.querySelector("#game");
+  const originalGame = new Game(el, 1000, 4, scene)
   const animals = {}
   const plants = {}
-  setInterval(() => {
-    for (let animal of Object.values(animals)) {
-      animal.render()
-    }
-  }, 100)
+  originalGame.startTicker()
+  // setInterval(() => {
+  //   for (let animal of Object.values(animals)) {
+  //     animal.render()
+  //   }
+  // }, 100)
   el.addEventListener('click', (e) => {
     const x = e.clientX;
     const y = e.clientY;
@@ -96,6 +100,7 @@ const getGame = () => {
   let activePlant = null;
 
   const setActiveAnimal = (animal) => {
+    originalGame.activeHero = animal
     activeAnimal = animal;
     activePlant = null;
     console.log("active animal is " + (animal.name || 'anonymous animal'))
@@ -105,6 +110,7 @@ const getGame = () => {
     activeAnimal.el.classList.add("active");
   }
   const setActivePlant = (plant) => {
+    originalGame.activeHero = plant
     activePlant = plant;
     activeAnimal = null;
     console.log("active plant is " + (plant.name || 'anonymous plant'))
@@ -115,9 +121,11 @@ const getGame = () => {
   }
 
   const addAnimal = (animal) => {
+    originalGame.addAnimal(animal)
     animals[animal.name] = animal;
     el.append(animal.el);
     animal.render();
+    console.log(animal)
     animal.el.addEventListener('click', () => {
       setActiveAnimal(animal);
     });
@@ -137,13 +145,15 @@ const getGame = () => {
     addAnimal,
     addPlant,
     animals,
-    plants
+    plants,
+    originalGame
   }
 }
 
 const game = getGame();
 
-const shop = new Shop (shopEl, team, game)
+
+const shop = new Shop (shopEl, team, game.originalGame)
 
 const getHamster = (params = {}) => {
   const firstHamster = document.querySelector("#first-hamster")
