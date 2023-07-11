@@ -178,6 +178,12 @@ const getHamster = (params = {}) => {
 
     goTo,
     render,
+    
+    type: hamster.type,
+
+    useGood: hamster.useGood.bind(hamster),
+    checkGood: hamster.checkGood.bind(hamster) //"this" is hamster!
+
 
   }
 }
