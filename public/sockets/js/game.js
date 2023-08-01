@@ -163,6 +163,7 @@ const getHamster = (params = {}) => {
   document.querySelector("#scene").appendChild(el)
   const hamster = new Hamster(el, scene)
   const name = params.name || "hamster";
+  const type = hamster;
 
   const goTo = ({ x, y }) => {
     hamster.goTo(x, y)   

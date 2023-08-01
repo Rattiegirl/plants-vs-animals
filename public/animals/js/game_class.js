@@ -20,7 +20,7 @@ class Game {
     }
     renderAnimals() {
         for (let animal of this.animals) {
-            animal.render() 
+            animal.render()
         }
     }
     startTicker() {
@@ -73,6 +73,7 @@ class Game {
         const winnerAnimal = document.querySelector(".winner-animal")
         const winnerPlant = document.querySelector(".winner-plant")
         const restartGameBtn = document.querySelector(".restart-game-btn")
+        const shop = document.querySelector(".shop")
 
         if (this.playPauseBtn) {
             this.playPauseBtn.onclick = () => {
@@ -133,5 +134,13 @@ class Game {
         this.seeds -= seedAmount
         this.showSeeds()
 
+    }
+
+    buying() {
+        this.shop.onclick = () => {
+        alert("Hamster want to buy something")
+        hamster.buy(goodName)
+
+        }
     }
 }

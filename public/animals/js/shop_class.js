@@ -82,7 +82,7 @@ ${this.goods.map((good) => {
     }
     buy(goodName) {
         const good = this.goods.find((item) => item.name === goodName)
-        debugger
+       // debugger
         if (
             this.game.seeds >= good.price 
             && good.enabledFor.includes(this.game.activeHero.type)
